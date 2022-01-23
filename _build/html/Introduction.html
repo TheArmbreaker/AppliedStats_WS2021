@@ -1,0 +1,1173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data / Stats / EDA" href="Data.html" />
+    <link rel="prev" title="Applied Statistics Project" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lasso_regression.html">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Natural_spline.html">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIntroduction.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise-in-dieser-arbeit">
+   Vorgehensweise in dieser Arbeit
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#planing">
+     Planing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variablen">
+     Variablen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise-in-dieser-arbeit">
+   Vorgehensweise in dieser Arbeit
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#planing">
+     Planing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variablen">
+     Variablen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="vorgehensweise-in-dieser-arbeit">
+<h1>Vorgehensweise in dieser Arbeit<a class="headerlink" href="#vorgehensweise-in-dieser-arbeit" title="Permalink to this headline">¶</a></h1>
+<p>Die Arbeit orientiert sich am Data Science Lifecycle, welcher nachfolgend dargestellt wird.</p>
+<p>Die blau markierte Phase der Planung wird zur Vollständigkeit auf dieser Seite in einem rudimentären Niveau durchgegangen.</br></p>
+<p>Das Feature Engineering wird gleichzeitig auf Test- und Trainingsdaten angewendet, wenn sichergestellt ist das keine Informationen des jeweils anderen Datasets in die Modelle einfließen. Beispielsweise kann eine Wurzel-Transformation sofort erfolgen, weil kein Mittelwert oder sonstiger Lagewert verwendet wird. Im Gegensatz dazu wird eine Standardisierung, welche den Mittelwert verwendet, bei Bedarf separat auf das jeweilige Datensets angewendet.</p>
+<img src="https://kirenz.github.io/ds-python/_images/lifecycle.png" alt="alt text" width="600" align="center">
+<p>(Kirenz, J. 2021: <a class="reference external" href="https://kirenz.github.io/ds-python/docs/lifecycle.html">https://kirenz.github.io/ds-python/docs/lifecycle.html</a>)</p>
+<div class="section" id="planing">
+<h2>Planing<a class="headerlink" href="#planing" title="Permalink to this headline">¶</a></h2>
+<p>Zur Bewertung von Immobilienpreisen in bestimmten Distrikten sollen mehrere Modelle erstellt werden.</p>
+<p>Geschätzt werden soll der Median-Preis von Immobilien mit folgenden Modellen.</p>
+<ul class="simple">
+<li><p>OLS-Regression</p></li>
+<li><p>Lasso-Regression</p></li>
+<li><p>Regression mit Splines</p></li>
+</ul>
+<p>Ferner wird klassifiziert, ob die Median-Preise in Distrikten über der Preisschwelle von 150T$ liegen.</p>
+<ul class="simple">
+<li><p>Logistische Regression</p></li>
+</ul>
+</div>
+<div class="section" id="variablen">
+<h2>Variablen<a class="headerlink" href="#variablen" title="Permalink to this headline">¶</a></h2>
+<p>Der zur Verfügung gestellte Datensatz enthält folgende Werte.</p>
+<hr class="docutils" />
+<p><strong>longitude und latidue</strong>: Koordinaten zur Orientierung</br>
+<strong>housing_median_age:</strong> Median age of a house within a district; a lower number is a newer building</br>
+<strong>total_rooms:</strong> Total number of rooms within a district </br>
+<strong>total_bedrooms:</strong> Total number of bedrooms within a district</br>
+<strong>population:</strong> Total number of people residing within a district</br>
+<strong>households:</strong> Total number of households, a group of people residing within a home unit, for a district</br>
+<strong>median_income:</strong> Median income for households within a district of houses (measured in tens of thousands of US Dollars)</br>
+<strong>median_house_value:</strong> Median house value within a district (measured in US Dollars)</br>
+<strong>ocean_proximity:</strong> Location of the district</br>
+<strong>price_category:</strong> Indicator variable made from median_house_value (if median house value is below or above 150000)</br></p>
+<hr class="docutils" />
+<p>Mit Hilfe der nachfolgend dargestellten Variablen werden die Modelle trainiert und getestet.
+In den Modellen werden die Variabelen <em>price_categorie</em> und <em>median_house_value</em> die Responsewerte darstellen.</br>
+Ferner liegt mit <em>ocean_proximity</em> eine weitere Variable zur Strand- oder Ozean-Nähe vor.</br>
+Die restlichen Variablen sind absolute oder Medianwerte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;project_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;price_category&quot;</span><span class="p">,</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>price_category</th>
+      <th colspan="5" halign="left">above</th>
+      <th colspan="4" halign="left">below</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>ocean_proximity</th>
+      <th>&lt;1H OCEAN</th>
+      <th>INLAND</th>
+      <th>ISLAND</th>
+      <th>NEAR BAY</th>
+      <th>NEAR OCEAN</th>
+      <th>&lt;1H OCEAN</th>
+      <th>INLAND</th>
+      <th>NEAR BAY</th>
+      <th>NEAR OCEAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="8" valign="top">longitude</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-118.868776</td>
+      <td>-119.744651</td>
+      <td>-118.354000</td>
+      <td>-122.263450</td>
+      <td>-119.578427</td>
+      <td>-118.708556</td>
+      <td>-119.707094</td>
+      <td>-122.241911</td>
+      <td>-118.089749</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.586794</td>
+      <td>1.914385</td>
+      <td>0.070569</td>
+      <td>0.153829</td>
+      <td>2.310210</td>
+      <td>1.596380</td>
+      <td>1.870974</td>
+      <td>0.085101</td>
+      <td>1.993954</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-124.140000</td>
+      <td>-123.730000</td>
+      <td>-118.480000</td>
+      <td>-122.590000</td>
+      <td>-124.350000</td>
+      <td>-124.020000</td>
+      <td>-123.170000</td>
+      <td>-122.510000</td>
+      <td>-124.300000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-118.530000</td>
+      <td>-121.370000</td>
+      <td>-118.330000</td>
+      <td>-122.420000</td>
+      <td>-122.200000</td>
+      <td>-118.330000</td>
+      <td>-121.320000</td>
+      <td>-122.290000</td>
+      <td>-118.190000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-118.290000</td>
+      <td>-119.850000</td>
+      <td>-118.320000</td>
+      <td>-122.260000</td>
+      <td>-119.120000</td>
+      <td>-118.240000</td>
+      <td>-120.340000</td>
+      <td>-122.250000</td>
+      <td>-117.110000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>-117.990000</td>
+      <td>-118.030000</td>
+      <td>-118.320000</td>
+      <td>-122.130000</td>
+      <td>-117.250000</td>
+      <td>-118.150000</td>
+      <td>-117.650000</td>
+      <td>-122.200000</td>
+      <td>-117.070000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>-116.620000</td>
+      <td>-114.310000</td>
+      <td>-118.320000</td>
+      <td>-122.010000</td>
+      <td>-116.970000</td>
+      <td>-116.840000</td>
+      <td>-115.320000</td>
+      <td>-122.010000</td>
+      <td>-116.990000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">latitude</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>34.578614</td>
+      <td>36.741508</td>
+      <td>33.358000</td>
+      <td>37.786900</td>
+      <td>34.951257</td>
+      <td>34.441060</td>
+      <td>36.710334</td>
+      <td>37.897543</td>
+      <td>33.662711</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.459029</td>
+      <td>2.110433</td>
+      <td>0.040866</td>
+      <td>0.185200</td>
+      <td>2.243140</td>
+      <td>1.514905</td>
+      <td>2.128908</td>
+      <td>0.156159</td>
+      <td>2.130198</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>32.610000</td>
+      <td>32.640000</td>
+      <td>33.330000</td>
+      <td>37.350000</td>
+      <td>32.540000</td>
+      <td>32.710000</td>
+      <td>32.650000</td>
+      <td>37.470000</td>
+      <td>32.550000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>33.850000</td>
+      <td>34.420000</td>
+      <td>33.340000</td>
+      <td>37.710000</td>
+      <td>32.850000</td>
+      <td>33.910000</td>
+      <td>34.110000</td>
+      <td>37.790000</td>
+      <td>32.680000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>34.040000</td>
+      <td>36.810000</td>
+      <td>33.340000</td>
+      <td>37.780000</td>
+      <td>34.150000</td>
+      <td>34.000000</td>
+      <td>37.590000</td>
+      <td>37.840000</td>
+      <td>32.750000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>34.230000</td>
+      <td>38.530000</td>
+      <td>33.350000</td>
+      <td>37.890000</td>
+      <td>37.400000</td>
+      <td>34.080000</td>
+      <td>38.560000</td>
+      <td>37.980000</td>
+      <td>33.785000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>41.680000</td>
+      <td>41.950000</td>
+      <td>33.430000</td>
+      <td>38.340000</td>
+      <td>41.920000</td>
+      <td>41.880000</td>
+      <td>41.630000</td>
+      <td>38.320000</td>
+      <td>41.950000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">total_rooms</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2721.910809</td>
+      <td>2561.917866</td>
+      <td>1574.600000</td>
+      <td>2567.541813</td>
+      <td>2667.513294</td>
+      <td>2008.363105</td>
+      <td>3063.790560</td>
+      <td>1989.552901</td>
+      <td>2160.056948</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2195.687026</td>
+      <td>2310.304028</td>
+      <td>707.545264</td>
+      <td>1877.217757</td>
+      <td>2115.465430</td>
+      <td>1792.020829</td>
+      <td>2511.794622</td>
+      <td>1376.567861</td>
+      <td>1078.319437</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>11.000000</td>
+      <td>6.000000</td>
+      <td>716.000000</td>
+      <td>8.000000</td>
+      <td>15.000000</td>
+      <td>47.000000</td>
+      <td>2.000000</td>
+      <td>105.000000</td>
+      <td>22.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1521.000000</td>
+      <td>1343.000000</td>
+      <td>996.000000</td>
+      <td>1472.000000</td>
+      <td>1520.500000</td>
+      <td>1131.500000</td>
+      <td>1543.750000</td>
+      <td>1125.000000</td>
+      <td>1460.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2197.500000</td>
+      <td>2033.000000</td>
+      <td>1675.000000</td>
+      <td>2156.000000</td>
+      <td>2224.000000</td>
+      <td>1653.000000</td>
+      <td>2440.500000</td>
+      <td>1742.000000</td>
+      <td>2061.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3244.000000</td>
+      <td>2992.000000</td>
+      <td>2127.000000</td>
+      <td>3114.000000</td>
+      <td>3206.500000</td>
+      <td>2364.500000</td>
+      <td>3734.750000</td>
+      <td>2315.000000</td>
+      <td>2714.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>37937.000000</td>
+      <td>39320.000000</td>
+      <td>2359.000000</td>
+      <td>18634.000000</td>
+      <td>30405.000000</td>
+      <td>32627.000000</td>
+      <td>23386.000000</td>
+      <td>9493.000000</td>
+      <td>8052.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">total_bedrooms</th>
+      <th>count</th>
+      <td>7850.000000</td>
+      <td>4473.000000</td>
+      <td>5.000000</td>
+      <td>1977.000000</td>
+      <td>2192.000000</td>
+      <td>1184.000000</td>
+      <td>2023.000000</td>
+      <td>293.000000</td>
+      <td>436.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>554.553248</td>
+      <td>503.413146</td>
+      <td>420.400000</td>
+      <td>521.805766</td>
+      <td>543.913777</td>
+      <td>493.405405</td>
+      <td>601.249629</td>
+      <td>462.747440</td>
+      <td>511.979358</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>430.359921</td>
+      <td>420.666301</td>
+      <td>169.320111</td>
+      <td>371.283369</td>
+      <td>396.847083</td>
+      <td>407.514709</td>
+      <td>491.239997</td>
+      <td>340.251203</td>
+      <td>247.289011</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>214.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>6.000000</td>
+      <td>2.000000</td>
+      <td>27.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>307.000000</td>
+      <td>275.000000</td>
+      <td>264.000000</td>
+      <td>290.000000</td>
+      <td>311.000000</td>
+      <td>279.750000</td>
+      <td>300.000000</td>
+      <td>272.000000</td>
+      <td>338.750000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>444.000000</td>
+      <td>406.000000</td>
+      <td>512.000000</td>
+      <td>427.000000</td>
+      <td>457.000000</td>
+      <td>404.500000</td>
+      <td>479.000000</td>
+      <td>399.000000</td>
+      <td>494.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>661.000000</td>
+      <td>599.000000</td>
+      <td>521.000000</td>
+      <td>648.000000</td>
+      <td>671.250000</td>
+      <td>588.250000</td>
+      <td>752.000000</td>
+      <td>533.000000</td>
+      <td>643.250000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5471.000000</td>
+      <td>6210.000000</td>
+      <td>591.000000</td>
+      <td>3226.000000</td>
+      <td>4585.000000</td>
+      <td>6445.000000</td>
+      <td>4952.000000</td>
+      <td>2477.000000</td>
+      <td>1461.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">population</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1507.103930</td>
+      <td>1322.233341</td>
+      <td>668.000000</td>
+      <td>1239.056585</td>
+      <td>1335.184768</td>
+      <td>1607.665275</td>
+      <td>1543.862340</td>
+      <td>1170.754266</td>
+      <td>1449.157175</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1106.595859</td>
+      <td>1088.419749</td>
+      <td>301.691067</td>
+      <td>897.894411</td>
+      <td>1039.119219</td>
+      <td>1613.475613</td>
+      <td>1317.169083</td>
+      <td>798.222426</td>
+      <td>809.415424</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.000000</td>
+      <td>5.000000</td>
+      <td>341.000000</td>
+      <td>8.000000</td>
+      <td>8.000000</td>
+      <td>32.000000</td>
+      <td>6.000000</td>
+      <td>86.000000</td>
+      <td>14.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>850.000000</td>
+      <td>703.000000</td>
+      <td>422.000000</td>
+      <td>718.000000</td>
+      <td>751.500000</td>
+      <td>910.500000</td>
+      <td>749.250000</td>
+      <td>731.000000</td>
+      <td>953.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1236.000000</td>
+      <td>1090.000000</td>
+      <td>733.000000</td>
+      <td>1039.000000</td>
+      <td>1091.000000</td>
+      <td>1331.000000</td>
+      <td>1203.500000</td>
+      <td>1008.000000</td>
+      <td>1292.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1834.000000</td>
+      <td>1606.000000</td>
+      <td>744.000000</td>
+      <td>1500.000000</td>
+      <td>1600.500000</td>
+      <td>1917.500000</td>
+      <td>1885.750000</td>
+      <td>1406.000000</td>
+      <td>1785.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>16122.000000</td>
+      <td>16305.000000</td>
+      <td>1100.000000</td>
+      <td>8276.000000</td>
+      <td>12873.000000</td>
+      <td>35682.000000</td>
+      <td>11973.000000</td>
+      <td>5436.000000</td>
+      <td>5094.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">households</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>526.294659</td>
+      <td>449.503210</td>
+      <td>276.600000</td>
+      <td>496.882824</td>
+      <td>505.473186</td>
+      <td>461.094324</td>
+      <td>539.504916</td>
+      <td>432.273038</td>
+      <td>479.870159</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>393.965095</td>
+      <td>364.584243</td>
+      <td>113.200265</td>
+      <td>355.133832</td>
+      <td>362.837701</td>
+      <td>376.210934</td>
+      <td>441.434564</td>
+      <td>312.742378</td>
+      <td>229.106940</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>160.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>10.000000</td>
+      <td>2.000000</td>
+      <td>25.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>297.000000</td>
+      <td>245.000000</td>
+      <td>173.000000</td>
+      <td>279.000000</td>
+      <td>295.000000</td>
+      <td>268.000000</td>
+      <td>269.000000</td>
+      <td>255.000000</td>
+      <td>333.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>427.000000</td>
+      <td>371.000000</td>
+      <td>288.000000</td>
+      <td>410.000000</td>
+      <td>425.000000</td>
+      <td>377.000000</td>
+      <td>430.000000</td>
+      <td>380.000000</td>
+      <td>456.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>626.000000</td>
+      <td>542.000000</td>
+      <td>331.000000</td>
+      <td>616.000000</td>
+      <td>617.500000</td>
+      <td>546.750000</td>
+      <td>664.750000</td>
+      <td>486.000000</td>
+      <td>603.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5189.000000</td>
+      <td>5358.000000</td>
+      <td>431.000000</td>
+      <td>3589.000000</td>
+      <td>4176.000000</td>
+      <td>6082.000000</td>
+      <td>4616.000000</td>
+      <td>2323.000000</td>
+      <td>1430.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">median_income</th>
+      <th>count</th>
+      <td>7938.000000</td>
+      <td>4517.000000</td>
+      <td>5.000000</td>
+      <td>1997.000000</td>
+      <td>2219.000000</td>
+      <td>1198.000000</td>
+      <td>2034.000000</td>
+      <td>293.000000</td>
+      <td>439.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4.470720</td>
+      <td>3.162311</td>
+      <td>2.744420</td>
+      <td>4.388736</td>
+      <td>4.245924</td>
+      <td>2.640176</td>
+      <td>3.312672</td>
+      <td>2.701706</td>
+      <td>2.791962</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.010407</td>
+      <td>1.598616</td>
+      <td>0.444180</td>
+      <td>2.047104</td>
+      <td>2.080903</td>
+      <td>0.921980</td>
+      <td>0.982289</td>
+      <td>0.876933</td>
+      <td>0.908418</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.499900</td>
+      <td>0.499900</td>
+      <td>2.157900</td>
+      <td>0.499900</td>
+      <td>0.536000</td>
+      <td>0.700700</td>
+      <td>0.499900</td>
+      <td>0.716000</td>
+      <td>0.643300</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.133475</td>
+      <td>2.024200</td>
+      <td>2.604200</td>
+      <td>3.031300</td>
+      <td>2.859100</td>
+      <td>2.028000</td>
+      <td>2.629850</td>
+      <td>2.149400</td>
+      <td>2.105600</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>4.132450</td>
+      <td>2.734400</td>
+      <td>2.736100</td>
+      <td>4.038000</td>
+      <td>3.922400</td>
+      <td>2.555600</td>
+      <td>3.234100</td>
+      <td>2.661800</td>
+      <td>2.633300</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5.409075</td>
+      <td>3.973700</td>
+      <td>2.833300</td>
+      <td>5.285500</td>
+      <td>5.127650</td>
+      <td>3.159550</td>
+      <td>3.945150</td>
+      <td>3.255200</td>
+      <td>3.502700</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>15.000100</td>
+      <td>15.000100</td>
+      <td>3.390600</td>
+      <td>15.000100</td>
+      <td>15.000100</td>
+      <td>15.000100</td>
+      <td>12.538100</td>
+      <td>6.042600</td>
+      <td>7.300400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Applied Statistics Project</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data / Stats / EDA</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

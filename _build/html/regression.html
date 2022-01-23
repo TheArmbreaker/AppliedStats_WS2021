@@ -1,0 +1,1809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regression &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lasso Regression" href="lasso_regression.html" />
+    <link rel="prev" title="Data / Stats / EDA" href="Data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lasso_regression.html">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Natural_spline.html">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fregression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-normalverteilte-residuen">
+     Nicht-Normalverteilte Residuen
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-of-error-terms">
+     Correlation of Error Terms
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mulitkolliniaritat">
+     Mulitkolliniarität
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#influence-und-outliers">
+     Influence und Outliers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-linearitat-und-heteroskedastizitat">
+     Nicht-Linearität und Heteroskedastizität
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validierung-mit-testdaten">
+     Validierung mit Testdaten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regression</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-normalverteilte-residuen">
+     Nicht-Normalverteilte Residuen
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-of-error-terms">
+     Correlation of Error Terms
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mulitkolliniaritat">
+     Mulitkolliniarität
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#influence-und-outliers">
+     Influence und Outliers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-linearitat-und-heteroskedastizitat">
+     Nicht-Linearität und Heteroskedastizität
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validierung-mit-testdaten">
+     Validierung mit Testdaten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="regression">
+<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<p>In this project, your goal is to build regression models of housing prices. The models should learn from data and be able to predict the median house price in a district (which is a population of 600 to 3000 people), given some predictor variables.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-import">
+<h1>Data Import<a class="headerlink" href="#data-import" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  
+
+<span class="c1"># seaborn settings</span>
+<span class="n">custom_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;axes.spines.right&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;axes.spines.top&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">custom_params</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ready_data.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>priceCat</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+      <th>sm_PpH</th>
+      <th>sm_RpH</th>
+      <th>proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41.0</td>
+      <td>8.3252</td>
+      <td>452.6</td>
+      <td>above</td>
+      <td>2.555556</td>
+      <td>0.146591</td>
+      <td>6.984127</td>
+      <td>0.938270</td>
+      <td>1.943640</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21.0</td>
+      <td>8.3014</td>
+      <td>358.5</td>
+      <td>above</td>
+      <td>2.109842</td>
+      <td>0.155797</td>
+      <td>6.238137</td>
+      <td>0.746613</td>
+      <td>1.830682</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52.0</td>
+      <td>7.2574</td>
+      <td>352.1</td>
+      <td>above</td>
+      <td>2.802260</td>
+      <td>0.129516</td>
+      <td>8.288136</td>
+      <td>1.030426</td>
+      <td>2.114825</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>52.0</td>
+      <td>5.6431</td>
+      <td>341.3</td>
+      <td>above</td>
+      <td>2.547945</td>
+      <td>0.184458</td>
+      <td>5.817352</td>
+      <td>0.935287</td>
+      <td>1.760845</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>52.0</td>
+      <td>3.8462</td>
+      <td>342.2</td>
+      <td>above</td>
+      <td>2.181467</td>
+      <td>0.172096</td>
+      <td>6.281853</td>
+      <td>0.779998</td>
+      <td>1.837665</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19369</th>
+      <td>25.0</td>
+      <td>1.5603</td>
+      <td>78.1</td>
+      <td>below</td>
+      <td>2.560606</td>
+      <td>0.224625</td>
+      <td>5.045455</td>
+      <td>0.940244</td>
+      <td>1.618488</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19370</th>
+      <td>18.0</td>
+      <td>2.5568</td>
+      <td>77.1</td>
+      <td>below</td>
+      <td>3.122807</td>
+      <td>0.215208</td>
+      <td>6.114035</td>
+      <td>1.138732</td>
+      <td>1.810587</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19371</th>
+      <td>17.0</td>
+      <td>1.7000</td>
+      <td>92.3</td>
+      <td>below</td>
+      <td>2.325635</td>
+      <td>0.215173</td>
+      <td>5.205543</td>
+      <td>0.843993</td>
+      <td>1.649724</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19372</th>
+      <td>18.0</td>
+      <td>1.8672</td>
+      <td>84.7</td>
+      <td>below</td>
+      <td>2.123209</td>
+      <td>0.219892</td>
+      <td>5.329513</td>
+      <td>0.752929</td>
+      <td>1.673260</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19373</th>
+      <td>16.0</td>
+      <td>2.3886</td>
+      <td>89.4</td>
+      <td>below</td>
+      <td>2.616981</td>
+      <td>0.221185</td>
+      <td>5.254717</td>
+      <td>0.962021</td>
+      <td>1.659126</td>
+      <td>INLAND</td>
+    </tr>
+  </tbody>
+</table>
+<p>19374 rows × 10 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datatypes_toChange</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;proximity&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">datatypes_toChange</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;priceCat&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vorgehensweise">
+<h1>Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Permalink to this headline">¶</a></h1>
+<p>In den nachfolgenden Punkten wird die Lineare Regression jeweils einmal mit <strong>SK Learn</strong> und <strong>Statsmodels</strong> durchgeführt.</br>
+Dabei sind unterschiedliche Vorgehensweisen bzgl. Einlesen der Daten zu beachten.</p>
+<p>Vorarbeit wurde bereits in Data.ipynb erbracht.</p>
+<p>Ferner wird zum Statsmodel-Anteil die Regression Diagnostic durchgeführt.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-statsmodels">
+<h1>Modellierung in Statsmodels<a class="headerlink" href="#modellierung-in-statsmodels" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.eval_measures</span> <span class="kn">import</span> <span class="n">mse</span><span class="p">,</span> <span class="n">rmse</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">add_constant</span>
+<span class="kn">from</span> <span class="nn">statsmodels.compat</span> <span class="kn">import</span> <span class="n">lzip</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;proximity&quot;</span><span class="p">]],</span> <span class="n">drop_first</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">[[</span><span class="s2">&quot;proximity_INLAND&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;rooms_per_household&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_stats</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 19374 entries, 0 to 19373
+Data columns (total 7 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   housing_median_age  19374 non-null  float64
+ 1   median_income       19374 non-null  float64
+ 2   median_house_value  19374 non-null  float64
+ 3   share_bedrooms      19374 non-null  float64
+ 4   sm_PpH              19374 non-null  float64
+ 5   sm_RpH              19374 non-null  float64
+ 6   proximity_INLAND    19374 non-null  uint8  
+dtypes: float64(6), uint8(1)
+memory usage: 927.2 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;median_house_value ~ housing_median_age + median_income + sm_PpH + sm_RpH + share_bedrooms + proximity_INLAND&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="c1"># Full summary</span>
+<span class="n">lm</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>    <td>median_house_value</td> <th>  R-squared:         </th> <td>   0.634</td> 
+</tr>
+<tr>
+  <th>Model:</th>                    <td>OLS</td>        <th>  Adj. R-squared:    </th> <td>   0.634</td> 
+</tr>
+<tr>
+  <th>Method:</th>              <td>Least Squares</td>   <th>  F-statistic:       </th> <td>   4466.</td> 
+</tr>
+<tr>
+  <th>Date:</th>              <td>Sun, 23 Jan 2022</td>  <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+</tr>
+<tr>
+  <th>Time:</th>                  <td>22:03:58</td>      <th>  Log-Likelihood:    </th> <td> -85118.</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>       <td> 15499</td>       <th>  AIC:               </th> <td>1.703e+05</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>           <td> 15492</td>       <th>  BIC:               </th> <td>1.703e+05</td>
+</tr>
+<tr>
+  <th>Df Model:</th>               <td>     6</td>       <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>       <td>nonrobust</td>     <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+           <td></td>             <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>          <td>   41.5270</td> <td>    8.436</td> <td>    4.922</td> <td> 0.000</td> <td>   24.991</td> <td>   58.063</td>
+</tr>
+<tr>
+  <th>housing_median_age</th> <td>    0.8781</td> <td>    0.041</td> <td>   21.625</td> <td> 0.000</td> <td>    0.799</td> <td>    0.958</td>
+</tr>
+<tr>
+  <th>median_income</th>      <td>   42.3322</td> <td>    0.443</td> <td>   95.560</td> <td> 0.000</td> <td>   41.464</td> <td>   43.201</td>
+</tr>
+<tr>
+  <th>sm_PpH</th>             <td>  -90.7066</td> <td>    1.956</td> <td>  -46.362</td> <td> 0.000</td> <td>  -94.541</td> <td>  -86.872</td>
+</tr>
+<tr>
+  <th>sm_RpH</th>             <td>   14.4552</td> <td>    2.969</td> <td>    4.869</td> <td> 0.000</td> <td>    8.636</td> <td>   20.275</td>
+</tr>
+<tr>
+  <th>share_bedrooms</th>     <td>  289.3892</td> <td>   14.873</td> <td>   19.458</td> <td> 0.000</td> <td>  260.237</td> <td>  318.541</td>
+</tr>
+<tr>
+  <th>proximity_INLAND</th>   <td>  -63.2952</td> <td>    1.186</td> <td>  -53.391</td> <td> 0.000</td> <td>  -65.619</td> <td>  -60.972</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>2279.366</td> <th>  Durbin-Watson:     </th> <td>   1.995</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>7936.757</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 0.731</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 6.186</td>  <th>  Cond. No.          </th> <td>1.12e+03</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.12e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</div>
+<div class="section" id="nicht-normalverteilte-residuen">
+<h2>Nicht-Normalverteilte Residuen<a class="headerlink" href="#nicht-normalverteilte-residuen" title="Permalink to this headline">¶</a></h2>
+<p>Obwohl Omnibus und Jarque-Bera die Null-Hypothese der Normalverteilten Residuen verwerfen, können wir wegen der Anzahl von 15T Beobachtungen (sehr großes n) von Normalverteilung ausgehen.</p>
+</div>
+<div class="section" id="correlation-of-error-terms">
+<h2>Correlation of Error Terms<a class="headerlink" href="#correlation-of-error-terms" title="Permalink to this headline">¶</a></h2>
+<p>Durbin Watson ist 2. Demnach liegt keine Autokorrelation der Fehlerterme vor.</p>
+</div>
+<div class="section" id="mulitkolliniaritat">
+<h2>Mulitkolliniarität<a class="headerlink" href="#mulitkolliniaritat" title="Permalink to this headline">¶</a></h2>
+<p>Eine hohe Condition Number ist ein Hinweis auf Mulitkolliniarität. Daher wird nachfolgen der Variance Inflation Factor betrachtet.</p>
+<p>Im besten Fall sind die Werte = 1. Werte größer 5 sind sehr problematisch. </br>
+Im vorliegenden Modell sind hohe Werte für Rooms per Household und Share_Bedroom enthalten. Daher wird das Feature Share Bedroom entfernt.
+Das Summary zum neuen Modell fällt geringfühgig in R2, jedoch wir die Condition Number kleiner. Beim neuen VIF nimmt das Feature Rooms per Household deutlich ab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose features and add constant</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">add_constant</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">,</span> <span class="s2">&quot;share_bedrooms&quot;</span><span class="p">]])</span>
+<span class="c1"># create empty DataFrame</span>
+<span class="n">vif</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="c1"># calculate vif</span>
+<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;VIF Factor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="c1"># add feature names</span>
+<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="n">vif</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VIF Factor</th>
+      <th>Feature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>316.14</td>
+      <td>const</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.08</td>
+      <td>housing_median_age</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.71</td>
+      <td>median_income</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.02</td>
+      <td>sm_PpH</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.68</td>
+      <td>sm_RpH</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.11</td>
+      <td>share_bedrooms</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose features and add constant</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">add_constant</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">]])</span>
+<span class="c1"># create empty DataFrame</span>
+<span class="n">vif</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="c1"># calculate vif</span>
+<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;VIF Factor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="c1"># add feature names</span>
+<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="n">vif</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VIF Factor</th>
+      <th>Feature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>73.25</td>
+      <td>const</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.07</td>
+      <td>housing_median_age</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.42</td>
+      <td>median_income</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.00</td>
+      <td>sm_PpH</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.45</td>
+      <td>sm_RpH</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;median_house_value ~ housing_median_age + median_income + sm_PpH + sm_RpH + proximity_INLAND&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="c1"># Full summary</span>
+<span class="n">lm</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>    <td>median_house_value</td> <th>  R-squared:         </th> <td>   0.625</td> 
+</tr>
+<tr>
+  <th>Model:</th>                    <td>OLS</td>        <th>  Adj. R-squared:    </th> <td>   0.625</td> 
+</tr>
+<tr>
+  <th>Method:</th>              <td>Least Squares</td>   <th>  F-statistic:       </th> <td>   5158.</td> 
+</tr>
+<tr>
+  <th>Date:</th>              <td>Sun, 23 Jan 2022</td>  <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+</tr>
+<tr>
+  <th>Time:</th>                  <td>22:03:59</td>      <th>  Log-Likelihood:    </th> <td> -85305.</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>       <td> 15499</td>       <th>  AIC:               </th> <td>1.706e+05</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>           <td> 15493</td>       <th>  BIC:               </th> <td>1.707e+05</td>
+</tr>
+<tr>
+  <th>Df Model:</th>               <td>     5</td>       <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>       <td>nonrobust</td>     <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+           <td></td>             <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>          <td>  185.2889</td> <td>    4.122</td> <td>   44.953</td> <td> 0.000</td> <td>  177.210</td> <td>  193.368</td>
+</tr>
+<tr>
+  <th>housing_median_age</th> <td>    0.7778</td> <td>    0.041</td> <td>   19.080</td> <td> 0.000</td> <td>    0.698</td> <td>    0.858</td>
+</tr>
+<tr>
+  <th>median_income</th>      <td>   38.6419</td> <td>    0.405</td> <td>   95.367</td> <td> 0.000</td> <td>   37.848</td> <td>   39.436</td>
+</tr>
+<tr>
+  <th>sm_PpH</th>             <td>  -95.7115</td> <td>    1.963</td> <td>  -48.758</td> <td> 0.000</td> <td>  -99.559</td> <td>  -91.864</td>
+</tr>
+<tr>
+  <th>sm_RpH</th>             <td>  -21.4593</td> <td>    2.354</td> <td>   -9.117</td> <td> 0.000</td> <td>  -26.073</td> <td>  -16.846</td>
+</tr>
+<tr>
+  <th>proximity_INLAND</th>   <td>  -66.7403</td> <td>    1.186</td> <td>  -56.254</td> <td> 0.000</td> <td>  -69.066</td> <td>  -64.415</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>2366.126</td> <th>  Durbin-Watson:     </th> <td>   1.996</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>7045.631</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 0.806</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 5.883</td>  <th>  Cond. No.          </th> <td>    301.</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</div>
+<div class="section" id="influence-und-outliers">
+<h2>Influence und Outliers<a class="headerlink" href="#influence-und-outliers" title="Permalink to this headline">¶</a></h2>
+<p>Ausreißer und Punkte mit großen Einfluss auf die Regressionsgerade werden mittels Cook’s Distance und Influence Plot identifiziert und aus dem Datensatz entfernt.</p>
+<p>Dies verbessert den R2 von 62,5 auf 72,5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">influence_plot</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;cooks&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">p</span><span class="o">/</span><span class="n">j79wt3gs4478j15_gm54gfg40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3692</span><span class="o">/</span><span class="mf">1955419762.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">influence_plot</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;cooks&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/graphics/regressionplots.py</span> in <span class="ni">influence_plot</span><span class="nt">(results, external, alpha, criterion, size, plot_alpha, ax, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span> 
+<span class="g g-Whitespace">    </span><span class="mi">921</span>     <span class="n">infl</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">922</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">_influence_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">infl</span><span class="p">,</span> <span class="n">external</span><span class="o">=</span><span class="n">external</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span>                           <span class="n">criterion</span><span class="o">=</span><span class="n">criterion</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span>                           <span class="n">plot_alpha</span><span class="o">=</span><span class="n">plot_alpha</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/graphics/regressionplots.py</span> in <span class="ni">_influence_plot</span><span class="nt">(results, influence, external, alpha, criterion, size, plot_alpha, ax, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span>     <span class="n">leverage</span> <span class="o">=</span> <span class="n">infl</span><span class="o">.</span><span class="n">hat_matrix_diag</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>     <span class="k">if</span> <span class="n">external</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">885</span>         <span class="n">resids</span> <span class="o">=</span> <span class="n">infl</span><span class="o">.</span><span class="n">resid_studentized_external</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>         <span class="n">resids</span> <span class="o">=</span> <span class="n">infl</span><span class="o">.</span><span class="n">resid_studentized</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/properties.pyx</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/stats/outliers_influence.py</span> in <span class="ni">resid_studentized_external</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>         <span class="n">requires</span> <span class="n">leave</span> <span class="n">one</span> <span class="n">out</span> <span class="n">loop</span> <span class="k">for</span> <span class="n">observations</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">663</span><span class="sd">         sigma_looo = np.sqrt(self.sigma2_not_obsi)</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span><span class="sd">         return self.get_resid_studentized_external(sigma=sigma_looo)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="sd"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/properties.pyx</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/stats/outliers_influence.py</span> in <span class="ni">sigma2_not_obsi</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span><span class="sd">         uses results from leave-one-observation-out loop</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">798</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res_looo</span><span class="p">[</span><span class="s1">&#39;mse_resid&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span> 
+<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="nd">@property</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/properties.pyx</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/stats/outliers_influence.py</span> in <span class="ni">_res_looo</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span>         <span class="n">cv_iter</span> <span class="o">=</span> <span class="n">LeaveOneOut</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span>         <span class="k">for</span> <span class="n">inidx</span><span class="p">,</span> <span class="n">outidx</span> <span class="ow">in</span> <span class="n">cv_iter</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">958</span>             <span class="n">res_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_class</span><span class="p">(</span><span class="n">endog</span><span class="p">[</span><span class="n">inidx</span><span class="p">],</span> <span class="n">exog</span><span class="p">[</span><span class="n">inidx</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">959</span>             <span class="n">params</span><span class="p">[</span><span class="n">outidx</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_i</span><span class="o">.</span><span class="n">params</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>             <span class="n">mse_resid</span><span class="p">[</span><span class="n">outidx</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_i</span><span class="o">.</span><span class="n">mse_resid</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/regression/linear_model.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>                    <span class="s2">&quot;An exception will be raised in the next version.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">ValueWarning</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">892</span>         <span class="nb">super</span><span class="p">(</span><span class="n">OLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span>                                   <span class="n">hasconst</span><span class="o">=</span><span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>         <span class="k">if</span> <span class="s2">&quot;weights&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_keys</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/regression/linear_model.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, weights, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span>             <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">719</span>         <span class="nb">super</span><span class="p">(</span><span class="n">WLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>                                   <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span>         <span class="n">nobs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/regression/linear_model.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span><span class="sd">     def __init__(self, endog, exog, **kwargs):</span>
+<span class="ne">--&gt; </span><span class="mi">193</span><span class="sd">         super(RegressionModel, self).__init__(endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span><span class="sd">         self._data_attr.extend([&#39;pinv_wexog&#39;, &#39;wendog&#39;, &#39;wexog&#39;, &#39;weights&#39;])</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span><span class="sd"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/model.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="sd">     def __init__(self, endog, exog=None, **kwargs):</span>
+<span class="ne">--&gt; </span><span class="mi">267</span><span class="sd">         super().__init__(endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span><span class="sd">         self.initialize()</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span><span class="sd"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/model.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="sd">         missing = kwargs.pop(&#39;missing&#39;, &#39;none&#39;)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span><span class="sd">         hasconst = kwargs.pop(&#39;hasconst&#39;, None)</span>
+<span class="ne">---&gt; </span><span class="mi">92</span><span class="sd">         self.data = self._handle_data(endog, exog, missing, hasconst,</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">                                       **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">         self.k_constant = self.data.k_constant</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/model.py</span> in <span class="ni">_handle_data</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span><span class="sd">     def _handle_data(self, endog, exog, missing, hasconst, **kwargs):</span>
+<span class="ne">--&gt; </span><span class="mi">132</span><span class="sd">         data = handle_data(endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span><span class="sd">         # kwargs arrays could have changed, easier to just attach here</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span><span class="sd">         for key in kwargs:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/data.py</span> in <span class="ni">handle_data</span><span class="nt">(endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span><span class="sd">     klass = handle_data_class_factory(endog, exog)</span>
+<span class="ne">--&gt; </span><span class="mi">673</span><span class="sd">     return klass(endog, exog=exog, missing=missing, hasconst=hasconst,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span><span class="sd">                  **kwargs)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/data.py</span> in <span class="ni">__init__</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="sd">         self.const_idx = None</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="sd">         self.k_constant = 0</span>
+<span class="ne">---&gt; </span><span class="mi">86</span><span class="sd">         self._handle_constant(hasconst)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="sd">         self._check_integrity()</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span><span class="sd">         self._cache = {}</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/data.py</span> in <span class="ni">_handle_constant</span><span class="nt">(self, hasconst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span><span class="sd">             # detect where the constant is</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="sd">             check_implicit = False</span>
+<span class="ne">--&gt; </span><span class="mi">130</span><span class="sd">             exog_max = np.max(self.exog, axis=0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span><span class="sd">             if not np.isfinite(exog_max).all():</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="sd">                 raise MissingDataError(&#39;exog contains inf or nans&#39;)</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">amax</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2752</span><span class="sd">     5</span>
+<span class="g g-Whitespace">   </span><span class="mi">2753</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2754</span>     <span class="k">return</span> <span class="n">_wrapreduction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2755</span>                           <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2756</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>                 <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span> 
+<span class="ne">---&gt; </span><span class="mi">86</span>     <span class="k">return</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span> 
+<span class="g g-Whitespace">     </span><span class="mi">88</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+<img alt="_images/regression_18_1.png" src="_images/regression_18_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain Cook&#39;s distance </span>
+<span class="n">lm_cooksd</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span><span class="o">.</span><span class="n">cooks_distance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># get length of df to obtain n</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">])</span>
+
+<span class="c1"># calculate critical d</span>
+<span class="n">critical_d</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="n">n</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Critical Cooks distance:&#39;</span><span class="p">,</span> <span class="n">critical_d</span><span class="p">)</span>
+
+<span class="c1"># identification of potential outliers with leverage</span>
+<span class="n">out_d</span> <span class="o">=</span> <span class="n">lm_cooksd</span> <span class="o">&gt;</span> <span class="n">critical_d</span>
+
+<span class="c1"># output potential outliers with leverage</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">out_d</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lm_cooksd</span><span class="p">[</span><span class="n">out_d</span><span class="p">])</span>
+<span class="n">dont_want</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">out_d</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Critical Cooks distance: 0.0002580811665268727
+Int64Index([13667,  8780, 17298, 19308, 16953,  7893, 17178, 19278,  8298,
+              390,
+            ...
+            17162,  2487,  6332, 10008,  9773,  5171, 11151, 14913, 13695,
+             8185],
+           dtype=&#39;int64&#39;, length=924) 
+ [0.00027069 0.00051385 0.00056884 0.00063702 0.0003786  0.00153688
+ 0.00045435 0.00031262 0.0003456  0.00047778 0.00028509 0.0002717
+ 0.0004633  0.00036501 0.00161999 0.00040728 0.00439233 0.00081595
+ 0.00034619 0.000455   0.0014027  0.00135286 0.00028554 0.00078443
+ 0.00026739 0.00026843 0.00028671 0.00163723 0.00073892 0.00043956
+ 0.0002625  0.0012931  0.00031408 0.00168655 0.00027611 0.00072424
+ 0.00031134 0.00026534 0.00035736 0.00073711 0.00042623 0.00236697
+ 0.00112014 0.00035835 0.00120994 0.00088666 0.00033455 0.00090281
+ 0.00064843 0.00117344 0.00092746 0.00097496 0.00074999 0.00043042
+ 0.00041491 0.00032414 0.00030911 0.00175696 0.00037866 0.00038702
+ 0.000999   0.00026481 0.00027795 0.00027056 0.00096538 0.00076813
+ 0.0004502  0.00061381 0.00036518 0.00026697 0.00030889 0.00090538
+ 0.00027864 0.00040744 0.00031416 0.00030616 0.00043334 0.00044891
+ 0.00038023 0.0006497  0.0005164  0.0005461  0.0005412  0.00043778
+ 0.00055081 0.00143209 0.00103305 0.0006587  0.00039624 0.00061209
+ 0.00107534 0.00054905 0.00188573 0.00078603 0.00044584 0.00418828
+ 0.01110554 0.00054293 0.00418615 0.00051532 0.00028513 0.00044412
+ 0.00056656 0.00043094 0.00049963 0.00087719 0.00026201 0.000288
+ 0.040992   0.00057455 0.00053115 0.00133992 0.00048112 0.00064058
+ 0.0004342  0.00039544 0.00030094 0.00033343 0.00034022 0.00039917
+ 0.00051683 0.00080402 0.00080557 0.00074035 0.00108309 0.00045674
+ 0.00103139 0.00025889 0.00066208 0.00034072 0.00026112 0.00053248
+ 0.0252304  0.00225475 0.00073337 0.00062804 0.0003647  0.0004585
+ 0.0014515  0.00026511 0.00029845 0.00164961 0.000275   0.00055342
+ 0.00029403 0.00058959 0.00035189 0.00038521 0.00103092 0.00036451
+ 0.0002671  0.00034344 0.0011026  0.00030728 0.00029359 0.00091034
+ 0.00080215 0.00029273 0.00106121 0.00032075 0.0006106  0.00031332
+ 0.00041524 0.00029238 0.00093672 0.00027603 0.00057534 0.00103795
+ 0.00035345 0.00033128 0.00076785 0.00027334 0.00111174 0.00048448
+ 0.00050585 0.00032696 0.00030317 0.00032401 0.00805563 0.00037421
+ 0.00025983 0.00158947 0.00078723 0.00034922 0.00044795 0.0004564
+ 0.00085295 0.0002814  0.00026382 0.00026485 0.00035403 0.00071634
+ 0.00173958 0.00035448 0.00148995 0.00054682 0.00030754 0.00035105
+ 0.00051277 0.00092398 0.00049701 0.00123165 0.00038473 0.00088796
+ 0.00051858 0.00033427 0.00252813 0.00044325 0.00051504 0.0011879
+ 0.0011714  0.00086986 0.00155985 0.0002695  0.00027289 0.00030251
+ 0.00035537 0.00028561 0.00096294 0.00051906 0.00061689 0.00030457
+ 0.00090871 0.00085425 0.00027165 0.00027892 0.00028451 0.0003786
+ 0.00064006 0.00040191 0.00028689 0.00143285 0.00069697 0.0017228
+ 0.00155294 0.00101105 0.00033792 0.0003693  0.00137615 0.00035737
+ 0.00043765 0.00040047 0.00033826 0.00025912 0.00047756 0.00049941
+ 0.00030429 0.00114385 0.00027904 0.00436222 0.0006805  0.00036779
+ 0.00027634 0.00043455 0.00040697 0.00056024 0.00031814 0.00026262
+ 0.0011794  0.00159488 0.00104718 0.00034593 0.00026908 0.00050495
+ 0.00030153 0.00031127 0.00136154 0.00118531 0.00036336 0.00033325
+ 0.00066492 0.00032357 0.00062986 0.00081668 0.00062882 0.00064167
+ 0.00054181 0.00037513 0.00093444 0.00101427 0.0003339  0.00033095
+ 0.00026325 0.00066413 0.00055696 0.00026269 0.0004893  0.00087265
+ 0.00032585 0.00089404 0.00038589 0.00030634 0.00036052 0.00028327
+ 0.00057351 0.00041036 0.00032291 0.00228133 0.00030271 0.00301586
+ 0.0020099  0.00104848 0.00055613 0.00168061 0.0003676  0.0006795
+ 0.00042357 0.0003508  0.00036474 0.00061956 0.00029346 0.00027709
+ 0.00131998 0.00033755 0.00035182 0.00088542 0.00033817 0.00065733
+ 0.00032228 0.00068254 0.00036227 0.00040348 0.00037336 0.00037618
+ 0.00047449 0.001003   0.00691652 0.00171002 0.00044548 0.00036931
+ 0.00028056 0.00051573 0.00078105 0.00054353 0.00081929 0.00027083
+ 0.00028775 0.000538   0.0007677  0.00064453 0.00103266 0.01405932
+ 0.00030072 0.00074603 0.00304237 0.00112879 0.00029054 0.0009365
+ 0.00284481 0.00050442 0.00084133 0.00029893 0.00033995 0.00028439
+ 0.00032744 0.00039874 0.00026934 0.00126322 0.00165217 0.0007416
+ 0.00138046 0.00032343 0.00195613 0.00031923 0.00096346 0.00126904
+ 0.00062969 0.00116071 0.00183261 0.00127634 0.00091264 0.0007443
+ 0.00025919 0.00045081 0.00056533 0.0003192  0.00083152 0.00038732
+ 0.00037167 0.00030242 0.00029284 0.00032023 0.00220348 0.00030925
+ 0.00085658 0.00131294 0.0013674  0.00067484 0.00108784 0.00034242
+ 0.00049202 0.00031759 0.00029684 0.00028553 0.00067185 0.00034928
+ 0.00058833 0.00057891 0.00039698 0.00033235 0.00124268 0.00085539
+ 0.00332101 0.0011286  0.00040968 0.00038652 0.00034237 0.00027418
+ 0.00060558 0.00037144 0.00040548 0.00034491 0.00030775 0.00029388
+ 0.00033708 0.00045803 0.00126671 0.00030782 0.0004514  0.0002902
+ 0.00089649 0.00108496 0.00079795 0.00051181 0.00052363 0.00038682
+ 0.00028    0.0002901  0.02642253 0.00034956 0.00043024 0.00032782
+ 0.00199976 0.00077154 0.00058505 0.00028615 0.00126531 0.0005901
+ 0.00109432 0.00039239 0.00028065 0.00055054 0.00079825 0.00086726
+ 0.00026793 0.00041441 0.00027935 0.00044475 0.00035218 0.00026644
+ 0.00053111 0.00054275 0.00689673 0.00054221 0.00054833 0.0009787
+ 0.00033421 0.00030481 0.00051118 0.00028828 0.00096586 0.00035751
+ 0.00029024 0.00041217 0.00053295 0.00029652 0.00163317 0.00057344
+ 0.00091379 0.0003177  0.00047984 0.00072367 0.0019003  0.00037638
+ 0.00066069 0.00041057 0.00035914 0.00045752 0.00030664 0.00030137
+ 0.00054843 0.00043019 0.00029918 0.00122625 0.00029067 0.00057108
+ 0.00036219 0.00059723 0.00041686 0.00051858 0.00071125 0.00107501
+ 0.00088562 0.00088569 0.00031323 0.00096506 0.00042812 0.00123065
+ 0.00031515 0.00033078 0.00101481 0.00068781 0.00078343 0.0002912
+ 0.00048186 0.00027075 0.00030955 0.00037333 0.00065813 0.00033991
+ 0.0003381  0.00118498 0.00075426 0.00047042 0.00028463 0.01716438
+ 0.0004971  0.00161763 0.00111987 0.00051773 0.00039081 0.00058386
+ 0.00027335 0.00080847 0.00049714 0.0002611  0.00027588 0.00031458
+ 0.00077235 0.00199794 0.00126858 0.00030435 0.00067676 0.0002895
+ 0.00052997 0.00028378 0.00064945 0.00033478 0.00113689 0.00085474
+ 0.00061267 0.00032348 0.00031386 0.00058764 0.00031427 0.00094439
+ 0.00087186 0.00052266 0.00065494 0.00364502 0.00044501 0.00049879
+ 0.0005084  0.00229316 0.00046459 0.00031512 0.00043448 0.00032582
+ 0.00033282 0.00063134 0.0003119  0.00054114 0.00029427 0.00033567
+ 0.00058506 0.00029121 0.00093758 0.00026869 0.00037335 0.00026163
+ 0.00066454 0.0004842  0.00077124 0.00041374 0.00081905 0.00039351
+ 0.00079426 0.00059625 0.00130152 0.00085155 0.00044698 0.00028223
+ 0.00138392 0.00043485 0.00050584 0.00037821 0.00036709 0.00039791
+ 0.00031359 0.00047698 0.00052084 0.00029773 0.00220765 0.00038917
+ 0.00031495 0.00033308 0.00100153 0.00072728 0.00040707 0.00060566
+ 0.00027152 0.00032315 0.00077937 0.00195674 0.00029779 0.00080071
+ 0.0004748  0.00041798 0.00113609 0.00101917 0.00030026 0.00030696
+ 0.00060277 0.00067531 0.00060574 0.00094315 0.00029652 0.00025809
+ 0.00040141 0.00027616 0.00081029 0.0024273  0.00061192 0.00066204
+ 0.00063196 0.00084919 0.00026346 0.00028953 0.00088056 0.00057038
+ 0.00087969 0.00033693 0.00041473 0.00036256 0.00038209 0.0014266
+ 0.00055638 0.00077893 0.00047869 0.00027846 0.00029183 0.00036105
+ 0.00032776 0.00041255 0.00040952 0.00146364 0.00063862 0.00040741
+ 0.0003878  0.00033408 0.00028399 0.00048603 0.00371309 0.00081797
+ 0.0002644  0.00179405 0.00026353 0.00156536 0.00101957 0.00211428
+ 0.00029497 0.00028946 0.0002725  0.00040784 0.00053609 0.00387342
+ 0.00027917 0.00167167 0.00069378 0.00156896 0.00032614 0.00038634
+ 0.00062393 0.00062066 0.00051013 0.00049931 0.00039292 0.0016127
+ 0.00055564 0.00030259 0.01625367 0.00033859 0.0002851  0.00046071
+ 0.00038045 0.00038568 0.00053188 0.00037674 0.00102836 0.00037903
+ 0.00048705 0.00035326 0.0006848  0.00125785 0.00064938 0.00026237
+ 0.00112308 0.00049962 0.00084653 0.00118895 0.00038244 0.00073953
+ 0.00064282 0.00064364 0.00056019 0.00059297 0.00063219 0.0013759
+ 0.0003297  0.00025849 0.00040143 0.00030056 0.00027339 0.00108521
+ 0.00027137 0.00052484 0.00029676 0.00039449 0.00034452 0.00129428
+ 0.00147272 0.00038809 0.00029124 0.00056026 0.00030696 0.00034383
+ 0.00062133 0.00039104 0.00053493 0.00045237 0.00028105 0.00036231
+ 0.00140934 0.00188497 0.00028552 0.00061632 0.00202483 0.0008638
+ 0.00036767 0.0003006  0.00069165 0.00028366 0.00043484 0.00038541
+ 0.0002588  0.00029744 0.00127759 0.0003813  0.00030152 0.00068686
+ 0.00034878 0.00061434 0.0002917  0.00033533 0.00072903 0.00081014
+ 0.00028585 0.00058928 0.00099075 0.00059416 0.00033374 0.00089291
+ 0.00133518 0.00044442 0.00087891 0.00053054 0.00046011 0.00034233
+ 0.00038157 0.00050767 0.00031801 0.00081956 0.00121541 0.00034989
+ 0.00040701 0.00099318 0.00026952 0.00027415 0.00095294 0.00029633
+ 0.00049386 0.00036072 0.00032569 0.00072068 0.0003234  0.00065203
+ 0.00026912 0.00070484 0.00110409 0.0011127  0.00055872 0.00033855
+ 0.00030328 0.00026776 0.00035986 0.00032666 0.00601483 0.00043329
+ 0.0012072  0.00057363 0.00034267 0.00032999 0.00056702 0.0017207
+ 0.0005295  0.00090421 0.00027067 0.00045819 0.000357   0.0005968
+ 0.0005482  0.00044391 0.00105542 0.00028835 0.00103903 0.00030771
+ 0.00036886 0.00027135 0.00050794 0.00064777 0.00052926 0.00030548
+ 0.0005364  0.00035633 0.00047977 0.00098616 0.00037312 0.00027952
+ 0.00027309 0.00649654 0.00027061 0.00028784 0.00035067 0.00045872
+ 0.00047488 0.00077002 0.00100451 0.00096535 0.00028098 0.00090472
+ 0.00045469 0.00028351 0.0002707  0.0006105  0.00086958 0.00038597
+ 0.00045078 0.00038657 0.00040662 0.00063111 0.00066065 0.00027192
+ 0.00040744 0.00059975 0.00076845 0.0004773  0.00033186 0.00031101
+ 0.00026627 0.00037512 0.00029194 0.00028384 0.00067839 0.00055395
+ 0.00253954 0.00058849 0.00039685 0.00146759 0.00036286 0.00034395
+ 0.00029479 0.00060985 0.00035512 0.0745915  0.00044919 0.00036388
+ 0.00030583 0.00120714 0.00044083 0.00042427 0.00037855 0.00060356
+ 0.00166024 0.0004177  0.00145697 0.00219196 0.00092606 0.00033948
+ 0.00032195 0.00033067 0.00232139 0.00225845 0.00030074 0.00038499
+ 0.0004808  0.00026029 0.00076013 0.00242502 0.00033502 0.00181117
+ 0.00104309 0.00050264 0.0003499  0.00043227 0.00038052 0.00061503
+ 0.00053274 0.00046935 0.00055533 0.00038717 0.00106013 0.00028259
+ 0.0004318  0.001001   0.00050753 0.00031282 0.00091282 0.000305
+ 0.00124375 0.00068208 0.00061985 0.00028438 0.00027873 0.00038996]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dont_want</span><span class="p">:</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gelöschte Datensätze nach Cook&#39;s distance:&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gelöschte Datensätze nach Cook&#39;s distance: 924
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;median_house_value ~ housing_median_age + median_income + sm_PpH + sm_RpH + proximity_INLAND&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">influence_plot</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;cooks&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/regression_21_0.png" src="_images/regression_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">lm</span><span class="o">.</span><span class="n">rsquared</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2_adj:&quot;</span><span class="p">,</span><span class="n">lm</span><span class="o">.</span><span class="n">rsquared_adj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.7245126582403816
+R2_adj: 0.7244181125125486
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nicht-linearitat-und-heteroskedastizitat">
+<h2>Nicht-Linearität und Heteroskedastizität<a class="headerlink" href="#nicht-linearitat-und-heteroskedastizitat" title="Permalink to this headline">¶</a></h2>
+<p>Der Fitted vs Regression Plot zeigt jedoch einen möglichen nicht-linearen Zusammenhang in der Varianz der Residuen.</br>
+Dies wird mit dem <strong>Breusch-Pagan Lagrange Multiplier test</strong> überprüft. Homoskedastizität kann nicht angenommen werden, weil der p-value kleiner 0.05 ist und die Null-Hypothese nicht verworfen wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">plot_partregress_grid</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eval_env: 1
+eval_env: 1
+eval_env: 1
+eval_env: 1
+eval_env: 1
+eval_env: 1
+</pre></div>
+</div>
+<img alt="_images/regression_24_1.png" src="_images/regression_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitted values</span>
+<span class="n">model_fitted_y</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">fittedvalues</span>
+
+<span class="c1">#  Plot</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">model_fitted_y</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">lowess</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                     <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> 
+                     <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">})</span>
+
+<span class="c1"># Titel and labels</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residuals vs Fitted&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Fitted values&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/regression_25_0.png" src="_images/regression_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lagrange multiplier statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> <span class="s1">&#39;f-value&#39;</span><span class="p">,</span> <span class="s1">&#39;f p-value&#39;</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">het_breuschpagan</span><span class="p">(</span><span class="n">lm</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">lm</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
+<span class="n">lzip</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Lagrange multiplier statistic&#39;, 1099.4848025329363),
+ (&#39;p-value&#39;, 1.72860501759635e-235),
+ (&#39;f-value&#39;, 237.74072981066067),
+ (&#39;f p-value&#39;, 7.149384108949611e-245)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="validierung-mit-testdaten">
+<h2>Validierung mit Testdaten<a class="headerlink" href="#validierung-mit-testdaten" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the regression predictions (as &quot;pred&quot;) to our DataFrame</span>
+<span class="n">train_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+<span class="c1"># Predict with Test_Dataset</span>
+<span class="n">test_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MSE</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE train dataset:&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">],</span> <span class="n">train_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE train dataset:&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">],</span> <span class="n">train_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE test dataset:&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">],</span> <span class="n">test_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE test dataset:&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">],</span> <span class="n">test_dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE train dataset: 2168.635897340869
+RMSE train dataset: 46.56861493904311
+MSE test dataset: 3684.1823574384193
+RMSE test dataset: 60.697465823858074
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/regression_30_0.png" src="_images/regression_30_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-sk-learn-pipeline">
+<h1>Modellierung in SK Learn Pipeline<a class="headerlink" href="#modellierung-in-sk-learn-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Nachfolgend die Regression mit der Pipeline von SKLearn mit dem Austausch von Parametern zum Darstellen der Pipeline-Funktionalität.</br>
+Mit anpassen einer Liste von Predictor-Variablen können über die Pipeline zahlreiche Modelle ermittelt werden.</p>
+<p>Zu beachten ist, dass die in Data.ipynb durchgeführten Log-Transformationen ebenfalls über die Pipeline erfolgen. D.h. getrennt für Trainings- und Testdaten.</br>
+Dies hilft bei der Standardizierung, welche hier ebenfalls für alle nummerischen Variablen vorgenommen wird.</p>
+<p>Die Erkenntnisse aus Regression-Diagnostics könnten an dieser Stelle berücksichtigt werden. Dies wird ausgelassen, weil mir noch die Erfahrung in Python und die Zeit fehlt.</br>
+Da die R2-Werte um den gleichen Wert wie das Statsmodels-Modelle ohne Ausreißer-Entfernung (62,5), wird geschlussfolgert das eine Reduktion der Predictoren keine signifikante Verbesserung bringt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_selector</span> <span class="k">as</span> <span class="n">selector</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">FunctionTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span>
+<span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+
+<span class="n">X</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 19374 entries, 0 to 19373
+Data columns (total 3 columns):
+ #   Column               Non-Null Count  Dtype   
+---  ------               --------------  -----   
+ 0   median_income        19374 non-null  float64 
+ 1   proximity            19374 non-null  category
+ 2   rooms_per_household  19374 non-null  float64 
+dtypes: category(1), float64(2)
+memory usage: 321.9 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+    <span class="p">])</span>
+
+<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;onehot&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">())</span>
+    <span class="p">])</span>
+
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_include</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;logTrans&#39;</span><span class="p">,</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">),</span><span class="n">col_log_</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_exclude</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)),</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;lm&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show pipeline</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
+<span class="c1"># Fit model</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;]]
+R2: 0.5579012444000107
+MSE: 4183.653978229074
+RMSE: 64.6811717444039
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show pipeline</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
+<span class="c1"># Fit model</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test_Dataset&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test_Dataset
+Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;]]
+R2: 0.5729091442301831
+MSE: 3974.7165311375707
+RMSE: 63.04535297020369
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;, &#39;person_per_household&#39;]]
+R2: 0.6077834301648145
+MSE: 3711.6105664930187
+RMSE: 60.92298881779372
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test_Dataset&quot;</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test_Dataset
+Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;, &#39;person_per_household&#39;]]
+R2: 0.6235501372516963
+MSE: 3503.426665300889
+RMSE: 59.18975135359912
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#	housing_median_age	median_income	median_house_value	priceCat	person_per_household	share_bedrooms	rooms_per_household#</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;, &#39;housing_median_age&#39;, &#39;person_per_household&#39;]]
+R2: 0.6159718125496948
+MSE: 3634.1225434985336
+RMSE: 60.28368389123656
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#	housing_median_age	median_income	median_house_value	priceCat	person_per_household	share_bedrooms	rooms_per_household#</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test_Dataset&quot;</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature:&quot;</span><span class="p">,[</span><span class="n">features</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test_Dataset
+Feature: [[&#39;median_income&#39;, &#39;proximity&#39;, &#39;rooms_per_household&#39;, &#39;housing_median_age&#39;, &#39;person_per_household&#39;]]
+R2: 0.6355649055769101
+MSE: 3391.611350983427
+RMSE: 58.237542453158404
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data / Stats / EDA</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lasso_regression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lasso Regression</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README.md
+parts:
+  - caption: Plan and Data
+    chapters:
+    - file: Introduction.ipynb
+    - file: Data.ipynb
+  - caption: Modelling
+    chapters:
+    - file: regression.ipynb
+    - file: lasso_regression.ipynb
+    - file: Natural_spline.ipynb
+    - file: classification.ipynb
+  - caption: Conclusion for Validation
+    chapters:
+    - file: summary.ipynb
