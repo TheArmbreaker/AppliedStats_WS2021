@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lasso Regression &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Natural Spline" href="Natural_spline.html" />
+    <link rel="prev" title="Regression" href="regression.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Natural_spline.html">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lasso_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flasso_regression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lasso_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datenimport">
+   Datenimport
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung">
+   Modellierung
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lasso Regression</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datenimport">
+   Datenimport
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung">
+   Modellierung
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lasso-regression">
+<h1>Lasso Regression<a class="headerlink" href="#lasso-regression" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="datenimport">
+<h1>Datenimport<a class="headerlink" href="#datenimport" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seaborn settings</span>
+<span class="n">custom_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;axes.spines.right&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;axes.spines.top&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">custom_params</span><span class="p">)</span>
+
+<span class="c1"># Data Import</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ready_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Change Datatypes from Data.ipynb</span>
+<span class="n">datatypes_toChange</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;priceCat&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;proximity&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">datatypes_toChange</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>priceCat</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+      <th>sm_PpH</th>
+      <th>sm_RpH</th>
+      <th>proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41.0</td>
+      <td>8.3252</td>
+      <td>452.6</td>
+      <td>above</td>
+      <td>2.555556</td>
+      <td>0.146591</td>
+      <td>6.984127</td>
+      <td>0.938270</td>
+      <td>1.943640</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21.0</td>
+      <td>8.3014</td>
+      <td>358.5</td>
+      <td>above</td>
+      <td>2.109842</td>
+      <td>0.155797</td>
+      <td>6.238137</td>
+      <td>0.746613</td>
+      <td>1.830682</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52.0</td>
+      <td>7.2574</td>
+      <td>352.1</td>
+      <td>above</td>
+      <td>2.802260</td>
+      <td>0.129516</td>
+      <td>8.288136</td>
+      <td>1.030426</td>
+      <td>2.114825</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>52.0</td>
+      <td>5.6431</td>
+      <td>341.3</td>
+      <td>above</td>
+      <td>2.547945</td>
+      <td>0.184458</td>
+      <td>5.817352</td>
+      <td>0.935287</td>
+      <td>1.760845</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>52.0</td>
+      <td>3.8462</td>
+      <td>342.2</td>
+      <td>above</td>
+      <td>2.181467</td>
+      <td>0.172096</td>
+      <td>6.281853</td>
+      <td>0.779998</td>
+      <td>1.837665</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19369</th>
+      <td>25.0</td>
+      <td>1.5603</td>
+      <td>78.1</td>
+      <td>below</td>
+      <td>2.560606</td>
+      <td>0.224625</td>
+      <td>5.045455</td>
+      <td>0.940244</td>
+      <td>1.618488</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19370</th>
+      <td>18.0</td>
+      <td>2.5568</td>
+      <td>77.1</td>
+      <td>below</td>
+      <td>3.122807</td>
+      <td>0.215208</td>
+      <td>6.114035</td>
+      <td>1.138732</td>
+      <td>1.810587</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19371</th>
+      <td>17.0</td>
+      <td>1.7000</td>
+      <td>92.3</td>
+      <td>below</td>
+      <td>2.325635</td>
+      <td>0.215173</td>
+      <td>5.205543</td>
+      <td>0.843993</td>
+      <td>1.649724</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19372</th>
+      <td>18.0</td>
+      <td>1.8672</td>
+      <td>84.7</td>
+      <td>below</td>
+      <td>2.123209</td>
+      <td>0.219892</td>
+      <td>5.329513</td>
+      <td>0.752929</td>
+      <td>1.673260</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19373</th>
+      <td>16.0</td>
+      <td>2.3886</td>
+      <td>89.4</td>
+      <td>below</td>
+      <td>2.616981</td>
+      <td>0.221185</td>
+      <td>5.254717</td>
+      <td>0.962021</td>
+      <td>1.659126</td>
+      <td>INLAND</td>
+    </tr>
+  </tbody>
+</table>
+<p>19374 rows × 10 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vorgehensweise">
+<h1>Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Permalink to this headline">¶</a></h1>
+<p>In den nachfolgenden Punkten wird die Lasso Regression jeweils einmal mit <strong>SK Learn</strong> und <strong>Statsmodels</strong> durchgeführt.</br>
+Dabei sind unterschiedliche Vorgehensweisen bzgl. Einlesen der Daten zu beachten.</p>
+<p>Vorarbeit wurde bereits in Data.ipynb erbracht.</p>
+<p>Ferner wird in SK Learn der Hyperparameter Lambda mittels Cross-Validation ermittelt.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-sk-learn-pipeline">
+<h1>Modellierung in SK Learn Pipeline<a class="headerlink" href="#modellierung-in-sk-learn-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Nachfolgend die Lasso-Regression in der SK-Learn Pipeline.</p>
+<p>Zum Ende wird der Hyperparameter Lambda ausgegeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_selector</span> <span class="k">as</span> <span class="n">selector</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">FunctionTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create label</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">]</span>
+
+<span class="c1"># create features</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sm_PpH&#39;</span><span class="p">,</span><span class="s1">&#39;sm_RpH&#39;</span><span class="p">,</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">,</span> <span class="s1">&#39;share_bedrooms&#39;</span><span class="p">,</span> <span class="s2">&quot;priceCat&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># create list of feature names</span>
+<span class="n">num_feature_names</span> <span class="o">=</span>  <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>person_per_household</th>
+      <th>rooms_per_household</th>
+      <th>proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5117</th>
+      <td>41.0</td>
+      <td>4.0231</td>
+      <td>2.064449</td>
+      <td>4.330561</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>2566</th>
+      <td>14.0</td>
+      <td>5.0329</td>
+      <td>2.850829</td>
+      <td>8.022099</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>306</th>
+      <td>52.0</td>
+      <td>2.4659</td>
+      <td>2.942857</td>
+      <td>5.782857</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>17621</th>
+      <td>23.0</td>
+      <td>2.3571</td>
+      <td>2.639742</td>
+      <td>6.489499</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>13146</th>
+      <td>18.0</td>
+      <td>3.0139</td>
+      <td>2.443359</td>
+      <td>6.468750</td>
+      <td>INLAND</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_log_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span>
+<span class="n">med_log_</span> <span class="o">=</span> <span class="s1">&#39;median_income&#39;</span>
+
+<span class="n">numeric_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+    <span class="p">])</span>
+
+<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;onehot&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">())</span>
+    <span class="p">])</span>
+
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_include</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;logTrans&#39;</span><span class="p">,</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">),</span><span class="n">col_log_</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_exclude</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)),</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;lasso&#39;</span><span class="p">,</span> <span class="n">LassoCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show pipeline</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
+<span class="c1"># Fit model</span>
+<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 {color: black;background-color: white;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 pre{padding: 0;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-toggleable {background-color: white;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-estimator:hover {background-color: #d4ebff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-item {z-index: 1;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-parallel-item:only-child::after {width: 0;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-eb1db3dc-29fd-4253-86f9-523b1c57b978 div.sk-container {display: inline-block;position: relative;}</style><div id="sk-eb1db3dc-29fd-4253-86f9-523b1c57b978" class"sk-top-container"><div class="sk-container"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="f935cca7-b433-4b62-8878-9e3eca6c9828" type="checkbox" ><label class="sk-toggleable__label" for="f935cca7-b433-4b62-8878-9e3eca6c9828">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('cat',
+                                                  Pipeline(steps=[('onehot',
+                                                                   OneHotEncoder())]),
+                                                  <sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a6a0>),
+                                                 ('logTrans',
+                                                  FunctionTransformer(func=<ufunc 'log'>),
+                                                  ['rooms_per_household',
+                                                   'person_per_household']),
+                                                 ('num',
+                                                  Pipeline(steps=[('scaler',
+                                                                   StandardScaler())]),
+                                                  <sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a880>)])),
+                ('lasso', LassoCV(cv=5, max_iter=10000, random_state=10))])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="1adf0660-8dcd-442a-bed7-fd97cf63caf5" type="checkbox" ><label class="sk-toggleable__label" for="1adf0660-8dcd-442a-bed7-fd97cf63caf5">preprocessor: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[('cat',
+                                 Pipeline(steps=[('onehot', OneHotEncoder())]),
+                                 <sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a6a0>),
+                                ('logTrans',
+                                 FunctionTransformer(func=<ufunc 'log'>),
+                                 ['rooms_per_household',
+                                  'person_per_household']),
+                                ('num',
+                                 Pipeline(steps=[('scaler', StandardScaler())]),
+                                 <sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a880>)])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="e4b8b88a-2414-40e5-99f4-c971320c266e" type="checkbox" ><label class="sk-toggleable__label" for="e4b8b88a-2414-40e5-99f4-c971320c266e">cat</label><div class="sk-toggleable__content"><pre><sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a6a0></pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="0a18fc59-342d-49cc-93c5-726182185588" type="checkbox" ><label class="sk-toggleable__label" for="0a18fc59-342d-49cc-93c5-726182185588">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="b9cf50c2-d624-42a4-8067-d7bea31e8f7e" type="checkbox" ><label class="sk-toggleable__label" for="b9cf50c2-d624-42a4-8067-d7bea31e8f7e">logTrans</label><div class="sk-toggleable__content"><pre>['rooms_per_household', 'person_per_household']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="aa0051da-446d-492e-bc84-b2184e083b5e" type="checkbox" ><label class="sk-toggleable__label" for="aa0051da-446d-492e-bc84-b2184e083b5e">FunctionTransformer</label><div class="sk-toggleable__content"><pre>FunctionTransformer(func=<ufunc 'log'>)</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6a1d577f-d8be-4f35-98d4-e8b9c63e52c8" type="checkbox" ><label class="sk-toggleable__label" for="6a1d577f-d8be-4f35-98d4-e8b9c63e52c8">num</label><div class="sk-toggleable__content"><pre><sklearn.compose._column_transformer.make_column_selector object at 0x7fa34ea0a880></pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="f6f565ac-5443-4084-9244-a35296f17bd3" type="checkbox" ><label class="sk-toggleable__label" for="f6f565ac-5443-4084-9244-a35296f17bd3">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="8c25c5e7-83f6-4b84-85b3-657f25f0d0a3" type="checkbox" ><label class="sk-toggleable__label" for="8c25c5e7-83f6-4b84-85b3-657f25f0d0a3">LassoCV</label><div class="sk-toggleable__content"><pre>LassoCV(cv=5, max_iter=10000, random_state=10)</pre></div></div></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;lasso&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R squared training set&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">lm_pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R squared test set&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">lm_pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R squared training set 62.69
+R squared test set 62.47
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE training set&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE test set&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE training set 59.32230302453848
+RMSE test set 59.49359330803611
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lambda:&quot;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">alpha_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lambda: 0.063103048006874
+</pre></div>
+</div>
+</div>
+</div>
+<p>Laut Ausgabe ist der Hyperparameter Lambda = 0.063103048006874</p>
+<p>Der nachfolgende Plot sollte eigentlich eine Darstellung über die Folds bei Cross-Validation=5 erstellen.
+Eventuell fehlt die Anzeige wegen dem Abruf aus der Pipeline mit <em>reg = lm_pipe.named_steps[‘lasso’]</em>. </br>
+Eine Kontrolle über den manuellen Weg mit dem ausgeworfenen Lambda ist möglich und wurde für das nachfolgende Statsmodels geplant. Die Umsetzung in SKLearn fehlte im Nachgang die Zeit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">alphas_</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">mse_path_</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">alphas_</span> <span class="p">,</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">mse_path_</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average across the folds&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">alpha_</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;alpha: CV estimate&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;alphas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Mean square error&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mean square error on each fold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2500</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/lasso_regression_17_0.png" src="_images/lasso_regression_17_0.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-statsmodels">
+<h1>Modellierung in Statsmodels<a class="headerlink" href="#modellierung-in-statsmodels" title="Permalink to this headline">¶</a></h1>
+<p>Nachfolgend wird die Vorbereitung für die Lasso Regression dargestellt. Dies erfolgt bis zur Standardisierung von allen nummerischen Spalten.</br>
+Mittlerweile gibt es eine Funktion bei Statsmodels, welche jedoch noch nicht ausgereift ist. Beispielsweise scheint die Funktion zur Ausgabe von üblichen Summary-Werten wie MSE und R2 zu fehlen.</p>
+<p>Der Umfang wird in diesem Notebook aufgenommen, weil sehr viel Zeit in die Recherche geflossen ist. :-)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="k">as</span> <span class="nn">slm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.eval_measures</span> <span class="kn">import</span> <span class="n">mse</span><span class="p">,</span> <span class="n">rmse</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">[[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ocean_Prox&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">numeric_feature_names</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat_below&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">p</span><span class="o">/</span><span class="n">j79wt3gs4478j15_gm54gfg40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3682</span><span class="o">/</span><span class="mf">1709389668.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">[[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_stats</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ocean_Prox&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">numeric_feature_names</span> <span class="o">=</span> <span class="n">df_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat_below&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="ne">NameError</span>: name &#39;dummies&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[[</span><span class="s1">&#39;priceCat&#39;</span><span class="p">,</span> <span class="s1">&#39;Ocean_Prox&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[[</span><span class="s1">&#39;priceCat&#39;</span><span class="p">,</span> <span class="s1">&#39;Ocean_Prox&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+<span class="n">X_train_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="s1">&#39;priceCat&#39;</span><span class="p">,</span><span class="s1">&#39;Ocean_Prox&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">train_dummies</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+<span class="n">X_test_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="s1">&#39;priceCat&#39;</span><span class="p">,</span><span class="s1">&#39;Ocean_Prox&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">test_dummies</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train_dataset</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train_dataset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15450
+15450
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="c1">#pd.concat([df, dummies[[&quot;Ocean_Prox_INLAND&quot;,&quot;priceCat_below&quot;]]], axis=1)</span>
+<span class="n">X_train_dataset_z</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train_dataset</span><span class="p">[</span><span class="n">numeric_feature_names</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">),</span> <span class="n">train_dummies</span><span class="p">[[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test_dataset_z</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test_dataset</span><span class="p">[</span><span class="n">numeric_feature_names</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">),</span> <span class="n">test_dummies</span><span class="p">[[</span><span class="s2">&quot;Ocean_Prox_INLAND&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train_dataset_z</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 15450 entries, 6109 to 15656
+Data columns (total 7 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   housing_median_age   15450 non-null  float64
+ 1   median_income        15450 non-null  float64
+ 2   Person_per_Houshold  15450 non-null  float64
+ 3   Share_Bedrooms       15450 non-null  float64
+ 4   Rooms_per_Houshold   15450 non-null  float64
+ 5   Ocean_Prox_INLAND    15450 non-null  uint8  
+ 6   priceCat_below       15450 non-null  uint8  
+dtypes: float64(5), uint8(2)
+memory usage: 754.4 KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung">
+<h1>Modellierung<a class="headerlink" href="#modellierung" title="Permalink to this headline">¶</a></h1>
+<p>Für statsmodel scheint noch keine ausgereifte Funktionalität bei Lasso-Regression zu bestehen.</p>
+<p>Hier wurde das Alpha aus der SK Learn Pipeline exemplarisch eingesetzt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Model</span>
+<span class="c1">#lasso_reg = slm.GLM(y_train_dataset,X_train_dataset_z).fit_regularized(method=&quot;&quot;,alpha=0.063103048006874, L1_wt=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="regression.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Natural_spline.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Natural Spline</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

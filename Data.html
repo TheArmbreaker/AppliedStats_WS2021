@@ -1,0 +1,2249 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data / Stats / EDA &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Regression" href="regression.html" />
+    <link rel="prev" title="Introduction" href="Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lasso_regression.html">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Natural_spline.html">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FData.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data / Stats / EDA
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-inspection-and-transformation">
+   Data Inspection and Transformation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bereinigung-datensatz">
+     Bereinigung Datensatz
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fehlende-werte">
+     Fehlende Werte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistik-exploratory-data-analysis-und-feature-engineering">
+   Statistik, Exploratory Data Analysis und Feature Engineering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#median-house-value-preiskategorie">
+     Median_House_Value &amp; Preiskategorie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-transformation-fur-median-house-value">
+       Feature Transformation für
+       <em>
+        median_house_value
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#median-income-preiskategorie">
+     Median Income &amp; Preiskategorie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eda-von-median-income-und-transformation-von-median-house-value">
+       EDA von
+       <em>
+        median_income
+       </em>
+       und Transformation von
+       <em>
+        median_house_value
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#housing-age-preiskategorie">
+     Housing Age &amp; Preiskategorie
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrelationsanalyse-mit-feature-engineering">
+     Korrelationsanalyse mit Feature Engineering
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#korrelationsanalyse-und-neue-features">
+       Korrelationsanalyse und neue Features
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uberblick-zu-neuen-features-und-transformation">
+     Überblick zu neuen Features und Transformation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lage-kategorien">
+     Lage-Kategorien
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zusammenfassung-preiskategorie">
+       Zusammenfassung Preiskategorie
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#die-lage-kategorie-ocean-proximity">
+       Die Lage-Kategorie:
+       <em>
+        ocean_proximity
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-export">
+   Data Export
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data / Stats / EDA</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data / Stats / EDA
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-inspection-and-transformation">
+   Data Inspection and Transformation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bereinigung-datensatz">
+     Bereinigung Datensatz
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fehlende-werte">
+     Fehlende Werte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistik-exploratory-data-analysis-und-feature-engineering">
+   Statistik, Exploratory Data Analysis und Feature Engineering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#median-house-value-preiskategorie">
+     Median_House_Value &amp; Preiskategorie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-transformation-fur-median-house-value">
+       Feature Transformation für
+       <em>
+        median_house_value
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#median-income-preiskategorie">
+     Median Income &amp; Preiskategorie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eda-von-median-income-und-transformation-von-median-house-value">
+       EDA von
+       <em>
+        median_income
+       </em>
+       und Transformation von
+       <em>
+        median_house_value
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#housing-age-preiskategorie">
+     Housing Age &amp; Preiskategorie
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrelationsanalyse-mit-feature-engineering">
+     Korrelationsanalyse mit Feature Engineering
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#korrelationsanalyse-und-neue-features">
+       Korrelationsanalyse und neue Features
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uberblick-zu-neuen-features-und-transformation">
+     Überblick zu neuen Features und Transformation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lage-kategorien">
+     Lage-Kategorien
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zusammenfassung-preiskategorie">
+       Zusammenfassung Preiskategorie
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#die-lage-kategorie-ocean-proximity">
+       Die Lage-Kategorie:
+       <em>
+        ocean_proximity
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-export">
+   Data Export
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-stats-eda">
+<h1>Data / Stats / EDA<a class="headerlink" href="#data-stats-eda" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-inspection-and-transformation">
+<h1>Data Inspection and Transformation<a class="headerlink" href="#data-inspection-and-transformation" title="Permalink to this headline">¶</a></h1>
+<p>Das Datenset enthält 10 Spalten mit unterschiedlichen Datentypen.</p>
+<ul class="simple">
+<li><p>Für <em>housing_median_age</em> und <em>median_house_value</em> wird eigentlich ein Int oder Float-Datentyp erwartet, weshalb die Daten nachfolgend ausgelesen und ausgewertet werden.</p></li>
+<li><p>Aus der Beschreibung des Datensatzes ist bekannt, dass es sich bei <em>ocean_proximity</em> und <em>price_category</em> um Categoriale Variablen handelt.</p></li>
+<li><p>Longitude und Latitude werden entfernt, weil sie für die Aufgabenstellung unerheblich erscheinen.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;project_data.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 20640 entries, 0 to 20639
+Data columns (total 11 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   longitude           20640 non-null  float64
+ 1   latitude            20640 non-null  float64
+ 2   housing_median_age  20640 non-null  object 
+ 3   total_rooms         20640 non-null  int64  
+ 4   total_bedrooms      20433 non-null  float64
+ 5   population          20640 non-null  int64  
+ 6   households          20640 non-null  int64  
+ 7   median_income       20640 non-null  float64
+ 8   median_house_value  20640 non-null  object 
+ 9   ocean_proximity     20640 non-null  object 
+ 10  price_category      20640 non-null  object 
+dtypes: float64(4), int64(3), object(4)
+memory usage: 1.7+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bereinigung-datensatz">
+<h2>Bereinigung Datensatz<a class="headerlink" href="#bereinigung-datensatz" title="Permalink to this headline">¶</a></h2>
+<p>Bei <em>housing_median_age</em> und <em>median_house_value</em> wurde ein einzelner Datensatz mit untypischen Eingaben identifiziert. Die Bereinigung erfolgt manuell, weil es nur ein Datensatz ist. Anschließenden werden die korrekten Datentypen vergeben für die neuen Spalten dem Datentyp <em>float64</em> zugeordnet. Bei dieser Gelegenheit erhalten die Categorial Variablen auch den Datentyp <em>category</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_nofloat_age</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">List_age</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">amt_nofloat_value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">List_value</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">amt_nofloat_age</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">List_age</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">amt_nofloat_value</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">List_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nicht-Float-Werte in Spalte housing_median_age:&quot;</span><span class="p">,</span> <span class="n">amt_nofloat_age</span><span class="p">,</span> <span class="s2">&quot;von&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">]),</span><span class="s2">&quot;. In folgenden Zeilen:&quot;</span><span class="p">,</span><span class="n">List_age</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nicht-Float-Werte in Spalte median_house_value:&quot;</span><span class="p">,</span> <span class="n">amt_nofloat_value</span><span class="p">,</span> <span class="s2">&quot;von&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]),</span><span class="s2">&quot;. In folgenden Zeilen:&quot;</span><span class="p">,</span> <span class="n">List_value</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nicht-Float-Werte in Spalte housing_median_age: 1 von 20640 . In folgenden Zeilen: [0]
+Nicht-Float-Werte in Spalte median_house_value: 1 von 20640 . In folgenden Zeilen: [0]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>housing_median_age    41.0years
+total_rooms                 880
+total_bedrooms            129.0
+population                  322
+households                  126
+median_income            8.3252
+median_house_value    452600.0$
+ocean_proximity        NEAR BAY
+price_category            above
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">41.0</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">452600.0</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>housing_median_age        41.0
+total_rooms                880
+total_bedrooms           129.0
+population                 322
+households                 126
+median_income           8.3252
+median_house_value    452600.0
+ocean_proximity       NEAR BAY
+price_category           above
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datatypes_toChange</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">:</span> <span class="s2">&quot;float64&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">:</span> <span class="s2">&quot;float64&quot;</span><span class="p">,</span> <span class="s2">&quot;ocean_proximity&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;price_category&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">datatypes_toChange</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fehlende-werte">
+<h2>Fehlende Werte<a class="headerlink" href="#fehlende-werte" title="Permalink to this headline">¶</a></h2>
+<p>Nachfolgend wird dargestellt, dass es in der Spalte <em>total_bedrooms</em> 207 Einträge fehlen.
+Die Datensätze könnten mit dem Median oder einer sonstigen Strategie aufgefüllt werden. Dies entfällt hier.
+Hinweis: Datensätze dürfen nur aufgefüllt werden, wenn kein weiterer Split mehr erfolgt. Dadurch soll verhindert werden, dass Informationen aus anderen Trainings/Test-Sets enthalten sind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>housing_median_age      0
+total_rooms             0
+total_bedrooms        207
+population              0
+households              0
+median_income           0
+median_house_value      0
+ocean_proximity         0
+price_category          0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1">#Dropen der Zeilen mit Nullwert</span>
+<span class="n">df_b</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_b</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_13_0.png" src="_images/Data_13_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nachdem die technische Inspektion abgeschlossen ist, werden nochmals Informationen zum Dataframe abgerufen.</p>
+<ul class="simple">
+<li><p>Uns stehen 20433 Datensätze zur Verfügung.</p></li>
+<li><p>Die Datentypen entsprechen den erwarteten Datentypen</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 20433 entries, 0 to 20639
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype   
+---  ------              --------------  -----   
+ 0   housing_median_age  20433 non-null  float64 
+ 1   total_rooms         20433 non-null  int64   
+ 2   total_bedrooms      20433 non-null  float64 
+ 3   population          20433 non-null  int64   
+ 4   households          20433 non-null  int64   
+ 5   median_income       20433 non-null  float64 
+ 6   median_house_value  20433 non-null  float64 
+ 7   ocean_proximity     20433 non-null  category
+ 8   price_category      20433 non-null  category
+dtypes: category(2), float64(4), int64(3)
+memory usage: 1.3 MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="statistik-exploratory-data-analysis-und-feature-engineering">
+<h1>Statistik, Exploratory Data Analysis und Feature Engineering<a class="headerlink" href="#statistik-exploratory-data-analysis-und-feature-engineering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="median-house-value-preiskategorie">
+<h2>Median_House_Value &amp; Preiskategorie<a class="headerlink" href="#median-house-value-preiskategorie" title="Permalink to this headline">¶</a></h2>
+<p>Zunächst betrachten wir unsere Zielvariablen (Response-Values/Variablen).</p>
+<p>Dazu werden die <em>median_house_values</em> nach Preiskategorie gruppiert und erste Lagemaße ausgegeben.</p>
+<p>In der Preiskategorie liegt bereits das 2. Quantil über 150T$. Dies ist der Schwellenwert zwischen <em>below</em> und <em>above</em> aus der Aufgabenstellung. D.h. die Werte in der Spalte <em>price_categore</em> müssen neu ermittelt werden. Die sich überschneidende Verteilung der Preiskategorien verdeutlicht auch der nachstehende Boxplot, welcher eine Visualisierung der Lagemaße darstellt.</p>
+<p>Die neue Spalte für <em>price_category</em> wird <em>priceCat</em> genannt. Die alte Spalte wird entfernt. Siehe Boxplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;price_category&quot;</span><span class="p">)[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>price_category</th>
+      <th>above</th>
+      <th>below</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>16497.000000</td>
+      <td>3936.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>226383.327757</td>
+      <td>125054.572154</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>120310.499604</td>
+      <td>14808.789743</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>17500.000000</td>
+      <td>14999.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>156300.000000</td>
+      <td>112500.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>208100.000000</td>
+      <td>125000.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>288800.000000</td>
+      <td>137500.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>500001.000000</td>
+      <td>149900.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;priceCat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">median_house_value</span> <span class="o">&gt;=</span> <span class="mi">150000</span><span class="p">,</span> <span class="s2">&quot;above&quot;</span><span class="p">,</span> <span class="s2">&quot;below&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;priceCat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;priceCat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;price_category&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Verteilung des median_house_value über die Preiskategorien </span><span class="se">\n</span><span class="s2"> vor Bereinigung&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Verteilung des median_house_value über die Preiskategorien \n vor Bereinigung&#39;)
+</pre></div>
+</div>
+<img alt="_images/Data_19_1.png" src="_images/Data_19_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Verteilung des median_house_value über die Preiskategorien </span><span class="se">\n</span><span class="s2"> nach Bereinigung&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Verteilung des median_house_value über die Preiskategorien \n nach Bereinigung&#39;)
+</pre></div>
+</div>
+<img alt="_images/Data_20_1.png" src="_images/Data_20_1.png" />
+</div>
+</div>
+<p>Die neue Verteilung zeigt deutlich, dass der maximale Wert - in dem Fall der obere Whisker - von <strong>below</strong> dort liegt wo der minimale Wert von <strong>above</strong> anfängt.</p>
+<p>Nachfolgend wird die neue tabellarische Übersicht dargestellt.</p>
+<p>Der maximale Wert im Datensatz beträgt 500 T$ und im Mittel schwanken die Immobilienwerte der <em>above</em>-Kategorie mehr als doppelt so stark wie die in der Kategorie <em>below</em>.
+Außerdem sind die höherpreisigen Immobilien im Datensatz deutlich stärker vertreten (Anzahl).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;price_category&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Löschen der alten Preiskategorie</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">)[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>priceCat</th>
+      <th>above</th>
+      <th>below</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>12947.000000</td>
+      <td>7486.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>267580.918977</td>
+      <td>101855.516431</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>102404.047172</td>
+      <td>28847.558294</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>150000.000000</td>
+      <td>14999.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>185800.000000</td>
+      <td>79525.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>236000.000000</td>
+      <td>102300.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>325000.000000</td>
+      <td>126600.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>500001.000000</td>
+      <td>149900.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nachfolgend wird die Verteilung von <em>median_house_value</em> nach Preiskategorie geplotet.</p>
+<p>Für die Kategorie <em>below</em> (gelb) zeigt sich eine Verteilung, welche dank zentralen Grenzwertsatz als normalverteilt angesehen werden kann - obwohl sie nicht perfekt verläuft.
+Problematischer ist die Verteilung von <em>above</em> (blau).</p>
+<p>Verteilung <em>above</em>:</p>
+<ul class="simple">
+<li><p>Die Verteilung ist linkssteil (rechtsschief)</p></li>
+<li><p>Bei ca. 300 T$ bildet sich ein leichter Anstieg.</p></li>
+<li><p>Bei 500 T$ entsteht eine deutliche Wölbung.</p></li>
+</ul>
+<p>Der Scatterplot auf der rechten Seite zeigt eine vertikale Linie für den Bereich um 500 T$ Immobilienwert, verteilt über sämtliche Einkommen. Dies ist eine kritische Datenlage, weil das Ende einer Regressionsgeraden in alle Richtungen ausschwanken kann. Eventuell besteht kein linearer Zusammenhang oder eine weitere Verteilung ist in der Preiskategorie <em>above</em> enthalten.</p>
+<p>Dort wo sich im linken Plot das Plateau bildet, sind beim Scatterplot weitere vertikal verlaufende Linien zu beobachten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_24_0.png" src="_images/Data_24_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">median_house_value</span> <span class="o">&gt;</span> <span class="mi">480000</span><span class="p">]</span>
+<span class="n">df_exp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>total_rooms</th>
+      <th>total_bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+      <td>1072.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>33.845149</td>
+      <td>2932.471082</td>
+      <td>501.854478</td>
+      <td>1113.356343</td>
+      <td>466.338619</td>
+      <td>7.610380</td>
+      <td>499127.013060</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>13.027956</td>
+      <td>2140.591909</td>
+      <td>395.876488</td>
+      <td>814.236929</td>
+      <td>361.263281</td>
+      <td>3.211686</td>
+      <td>3335.123205</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>8.000000</td>
+      <td>1.000000</td>
+      <td>13.000000</td>
+      <td>1.000000</td>
+      <td>0.499900</td>
+      <td>480100.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>25.000000</td>
+      <td>1675.250000</td>
+      <td>269.750000</td>
+      <td>640.750000</td>
+      <td>254.000000</td>
+      <td>5.112825</td>
+      <td>500001.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>34.000000</td>
+      <td>2486.000000</td>
+      <td>404.000000</td>
+      <td>925.500000</td>
+      <td>375.500000</td>
+      <td>7.302950</td>
+      <td>500001.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>44.000000</td>
+      <td>3505.250000</td>
+      <td>610.000000</td>
+      <td>1335.250000</td>
+      <td>572.000000</td>
+      <td>9.903650</td>
+      <td>500001.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>52.000000</td>
+      <td>18132.000000</td>
+      <td>5419.000000</td>
+      <td>7431.000000</td>
+      <td>4930.000000</td>
+      <td>15.000100</td>
+      <td>500001.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_exp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_exp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_exp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_26_0.png" src="_images/Data_26_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-transformation-fur-median-house-value">
+<h3>Feature Transformation für <em>median_house_value</em><a class="headerlink" href="#feature-transformation-fur-median-house-value" title="Permalink to this headline">¶</a></h3>
+<p>Es wurde das Phänomen des “Sammelns” von vielen Werten am oberen Rand erkannt. Wie oben beschrieben, scheinen die anderen Variablen gleichmäßiger in dem extrahierten Bereich vorzukommen.</p>
+<p>Unsere Aufgabenstellung konzentriert sich jedoch maßgeblich auf den Immobilienwert, weshalb das Phänomen entfernt wird. D.h. aus den Rohdaten werden nur solche Daten behalten, welche nicht zu diesem Phänomen beitragen.</br>
+Dies kann unterstützt werden, weil es sich um Daten am oberen Rand handelt. Die oben angesprochenen “kleineren” Phänomene bleiben zunächst erhalten.</p>
+<p>Zur Bereinigung wird das <strong>1. Quartil des extrahierten Datensatzes  - 1<span class="math notranslate nohighlight">\( (500T\)</span>)</strong> als Obergrenze auf die Rohdaten angewendet. Dadurch die kleineren Datenpunkte für die Modellierung erhalten bleiben. Jedoch verstärkt sich die Wölbung der kleineren Phänomene entsprechend. Der eine Doller wurde zusätzlich abgezogen, weil bei der Verwendung des Quartils viele Werte “nach unten” stehen geblieben sind und die vertikale Linie nicht verschwand. Der Code ist im nächsten Block ausgegraut zum Replizieren.</p>
+<p>Mit der nachfolgenden Ausgabe wird gezeigt, dass der höchste Immobilienwert im Datensatz 500 T<span class="math notranslate nohighlight">\( beträgt und der niedrigste Wert knappe 15 T\)</span>. Im Mittel weichen die Immobilienwerte 98 T<span class="math notranslate nohighlight">\( voneinander ab, wobei hier eine gemeinsame Verteilung für die Preiskategorie ausgegeben wird. Wesentliche Erkenntnis ist, dass das spätere Modelle für die Schätzung von Immobilien mit einem Wert von 500 T\)</span> ihre Güte verlieren und bestenfalls nur in der Range mit Ausgabewerten zwischen 15 T<span class="math notranslate nohighlight">\( und 500 T\)</span> verwendet werden sollten. Beim Deployment müssen die Anwender daraufhingewiesen werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df = df[df.median_house_value &lt; np.percentile(df_exp.median_house_value, q=[25])[0]] #25th Percentile oder auch 1. Quartil des Anomalie-Boxplot werden als Obergrenze verwendet.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">median_house_value</span> <span class="o">&lt;</span> <span class="mi">500000</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     19448.000000
+mean     192017.667421
+std       97095.550517
+min       14999.000000
+25%      116400.000000
+50%      173700.000000
+75%      247800.000000
+max      499100.000000
+Name: median_house_value, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_29_0.png" src="_images/Data_29_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="median-income-preiskategorie">
+<h2>Median Income &amp; Preiskategorie<a class="headerlink" href="#median-income-preiskategorie" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="eda-von-median-income-und-transformation-von-median-house-value">
+<h3>EDA von <em>median_income</em> und Transformation von <em>median_house_value</em><a class="headerlink" href="#eda-von-median-income-und-transformation-von-median-house-value" title="Permalink to this headline">¶</a></h3>
+<p>Wie im oberen Scatterplot bereits erkannt werden kann, gibt es einen deutlichen Unterschied zwischen der Verteilung von <em>median_income</em> zwischen den Preiskategorien.</br></p>
+<p>Die nachfolgende Tabelle zeigt ein Median-Einkommen zwischen 0.5 T<span class="math notranslate nohighlight">\( und 15 T\)</span> pro Monat. Wie durch nachfolgenden Boxplot und Dichteplot deutlich wird, weichen die Verteilungen der Preiskategorien voneinander ab.</br> Im Mittel schwanken die Einkommen für <em>below</em> um 1 T<span class="math notranslate nohighlight">\( und für *above* um 1.5 T\)</span>.</p>
+<p>Die unterschiedliche Skalierung zwischen Einkommen (in Tausend Dollar) und Immobilienwert (Absolute Dollar) kann für Probleme bei Modellschätzungen sorgen. Hier wird eine Transformation angeraten.</p>
+<p>Im Rahmen der Projektarbeit wurde über sqrt- oder log-Transformationen nachgedacht (vgl. Codezeilen), um hohe Werte zu stauchen. Stattdessen wird die Zeile <em>median_house_value</em> mit dem Faktor 1000 dividiert. Dies hat keinen Einfluss auf die Verteilung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_31_0.png" src="_images/Data_31_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Median_Income:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">)[</span><span class="s2">&quot;median_income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Median_House_Value:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="c1">#print(&quot;Modus:\n&quot;,df.mode().groupby(by=&quot;priceCat&quot;))</span>
+<span class="c1">#print(&quot;Modus:\n&quot;,df[[&quot;priceCat&quot;,&quot;median_income&quot;]].groupby(&#39;priceCat&#39;).apply(pd.DataFrame.mode).reset_index(drop=True).T)</span>
+<span class="c1">#df[[&quot;priceCat&quot;,&quot;median_income&quot;]].groupby(&#39;priceCat&#39;).apply(pd.DataFrame.mode).reset_index(drop=True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Median_Income:
+ priceCat         above        below
+count     11962.000000  7486.000000
+mean          4.304004     2.673620
+std           1.546825     0.970656
+min           0.499900     0.499900
+25%           3.192150     1.975000
+50%           4.125000     2.557450
+75%           5.215375     3.263025
+max          15.000100    15.000100 
+ Median_House_Value:
+ count     19448.000000
+mean     192017.667421
+std       97095.550517
+min       14999.000000
+25%      116400.000000
+50%      173700.000000
+75%      247800.000000
+max      499100.000000
+Name: median_house_value, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df[&#39;median_income&#39;] = np.log(df[&#39;median_income&#39;]) #Log-Transformation</span>
+<span class="c1">#df[&#39;median_income&#39;] = np.log(df[&#39;median_income&#39;]) #Sqrt-Transformation</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;median_house_value&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="c1">#Transformation by Value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    19448.000000
+mean       192.017667
+std         97.095551
+min         14.999000
+25%        116.400000
+50%        173.700000
+75%        247.800000
+max        499.100000
+Name: median_house_value, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fig, axes = plt.subplots(1,2, figsize=(18,6))</span>
+<span class="c1">#sns.kdeplot(hue=&quot;priceCat&quot;,x=&quot;median_income&quot;, data=df, ax=axes[0])</span>
+<span class="c1">#sns.boxplot(y=&quot;priceCat&quot;, x=&quot;median_income&quot;,data=df, ax=axes[1])</span>
+<span class="c1">#plt.show()</span>
+<span class="c1">#plt.tight_layout()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="housing-age-preiskategorie">
+<h2>Housing Age &amp; Preiskategorie<a class="headerlink" href="#housing-age-preiskategorie" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Die Verteilung der Median-Gebäudealter ist nicht besonders schön verteilt, aber kann als normal verteilt angenommen werden.</p></li>
+<li><p>Die Preiskategorie überschneiden sich.</p></li>
+<li><p>Die Lage-Kategorien überschneiden sich weitestgehend. Lediglich die Bay Area und Inseln fallen mit <strong>im Vergleich</strong> alten Gebäudebestand auf.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Die Median-Gebäudealter liegen zwischen einem und 52 Jahren.</p></li>
+<li><p>Die nicht erklärte Standardabweichung beträgt für beide Preiskategorien 12-13 Jahre bei einem Mittelwert von jeweils 28 Jahren.</p>
+<ul>
+<li><p>D.h. im Mittel schwankt das Gebäudealter zwischen 15 und 41 Jahren.</p></li>
+</ul>
+</li>
+</ul>
+<p>Es gilt die gleiche Bedingung wie beim Immobilienwert. Unser Modell wird den Zusammenhang zwischen Wert und einem Median-Alter &gt; 52 Jahre nicht lernen können.
+Viel wichtiger ist die inverse Beziehung, welche die Modellschätzung beeinträchtigen kann. Einigen Modellen fällt es rechnerisch leichter hohe Prediktoren mit hohe Response Variablen zu verbinden.
+Eine Transformation könnte angebracht sein.</p>
+<p>Die Klassifikation ist nicht davon betroffen, weil sich die Verteilungen nach Preiskategorie überschneiden.</br>
+Insbesondere die linearen Regressionsmodelle würden sich über eine Anpassung “freuen”. Nach Blick auf den Scatterplot zwischen Einkommen und Alter wird dieses Problem verworfen und es erfolgt keine Transformation. Den geringen Zusammenhang bestätigt auch die nachfolgende Korrelationsanalyse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">)[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>priceCat</th>
+      <th>above</th>
+      <th>below</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>11962.000000</td>
+      <td>7486.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>28.763167</td>
+      <td>27.728026</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.570590</td>
+      <td>12.387510</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>18.000000</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>29.000000</td>
+      <td>27.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.000000</td>
+      <td>37.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>52.000000</td>
+      <td>52.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_38_0.png" src="_images/Data_38_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">)</span>
+<span class="c1">#sns.histplot(x=&quot;housing_median_age&quot;, y=&quot;median_house_value&quot;, data=df)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;housing_median_age&#39;, ylabel=&#39;median_house_value&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_39_1.png" src="_images/Data_39_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="korrelationsanalyse-mit-feature-engineering">
+<h2>Korrelationsanalyse mit Feature Engineering<a class="headerlink" href="#korrelationsanalyse-mit-feature-engineering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="korrelationsanalyse-und-neue-features">
+<h3>Korrelationsanalyse und neue Features<a class="headerlink" href="#korrelationsanalyse-und-neue-features" title="Permalink to this headline">¶</a></h3>
+<p>Die Pearson-Korrelationskoeffizienten zeigen starke Abhängigkeiten zwischen den Variablen <em>total rooms</em>, <em>total bedrooms</em>, <em>population</em> und <em>households</em>.</p>
+<p>Zur Vermeidung von Multi-Kolinearität dürfen die Werte nicht verwendet werden. Jedoch können damit weitere Features ermittelt werden.</p>
+<ul class="simple">
+<li><p><em>Population</em> und <em>Haushalt</em> lassen sich zur Ermittlung der durchschnittlichen <em>Personen pro Haushalt</em> verwenden.</p></li>
+<li><p>Ein mittlerer Wert zu <em>Räume pro Haushalt</em> und zum <em>Schlafzimmer-Anteil</em> ermöglichen einen Schluss auf die Hausgröße, welche wiederum Einfluss auf den Wert des Hauses haben könnte.</p></li>
+</ul>
+<p>Bei Letzteren muss dennoch auf Kolinearität geachtet werden. Da für die Anzahl an Schlafzimmern und Anzahl an Räumen ein Zusammenhang unterstellt werden kann.</p>
+<p>Ferner wird auch eine deutliche Korrelation zwischen <em>median_income</em> und <em>median_house_value</em> erkennbar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate correlation using the default method ( &quot;pearson&quot;)</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="c1"># optimize aesthetics: generate mask for removing duplicate / unnecessary info</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># Generate a custom diverging colormap as indicator for correlations:</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_41_0.png" src="_images/Data_41_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;share_bedrooms&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">,</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">,</span><span class="s2">&quot;population&quot;</span><span class="p">,</span><span class="s2">&quot;households&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>ocean_proximity</th>
+      <th>priceCat</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41.0</td>
+      <td>8.3252</td>
+      <td>452.6</td>
+      <td>NEAR BAY</td>
+      <td>above</td>
+      <td>2.555556</td>
+      <td>0.146591</td>
+      <td>6.984127</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21.0</td>
+      <td>8.3014</td>
+      <td>358.5</td>
+      <td>NEAR BAY</td>
+      <td>above</td>
+      <td>2.109842</td>
+      <td>0.155797</td>
+      <td>6.238137</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52.0</td>
+      <td>7.2574</td>
+      <td>352.1</td>
+      <td>NEAR BAY</td>
+      <td>above</td>
+      <td>2.802260</td>
+      <td>0.129516</td>
+      <td>8.288136</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>52.0</td>
+      <td>5.6431</td>
+      <td>341.3</td>
+      <td>NEAR BAY</td>
+      <td>above</td>
+      <td>2.547945</td>
+      <td>0.184458</td>
+      <td>5.817352</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>52.0</td>
+      <td>3.8462</td>
+      <td>342.2</td>
+      <td>NEAR BAY</td>
+      <td>above</td>
+      <td>2.181467</td>
+      <td>0.172096</td>
+      <td>6.281853</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20635</th>
+      <td>25.0</td>
+      <td>1.5603</td>
+      <td>78.1</td>
+      <td>INLAND</td>
+      <td>below</td>
+      <td>2.560606</td>
+      <td>0.224625</td>
+      <td>5.045455</td>
+    </tr>
+    <tr>
+      <th>20636</th>
+      <td>18.0</td>
+      <td>2.5568</td>
+      <td>77.1</td>
+      <td>INLAND</td>
+      <td>below</td>
+      <td>3.122807</td>
+      <td>0.215208</td>
+      <td>6.114035</td>
+    </tr>
+    <tr>
+      <th>20637</th>
+      <td>17.0</td>
+      <td>1.7000</td>
+      <td>92.3</td>
+      <td>INLAND</td>
+      <td>below</td>
+      <td>2.325635</td>
+      <td>0.215173</td>
+      <td>5.205543</td>
+    </tr>
+    <tr>
+      <th>20638</th>
+      <td>18.0</td>
+      <td>1.8672</td>
+      <td>84.7</td>
+      <td>INLAND</td>
+      <td>below</td>
+      <td>2.123209</td>
+      <td>0.219892</td>
+      <td>5.329513</td>
+    </tr>
+    <tr>
+      <th>20639</th>
+      <td>16.0</td>
+      <td>2.3886</td>
+      <td>89.4</td>
+      <td>INLAND</td>
+      <td>below</td>
+      <td>2.616981</td>
+      <td>0.221185</td>
+      <td>5.254717</td>
+    </tr>
+  </tbody>
+</table>
+<p>19448 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate correlation using the default method ( &quot;pearson&quot;)</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="c1"># optimize aesthetics: generate mask for removing duplicate / unnecessary info</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># Generate a custom diverging colormap as indicator for correlations:</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_43_0.png" src="_images/Data_43_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uberblick-zu-neuen-features-und-transformation">
+<h2>Überblick zu neuen Features und Transformation<a class="headerlink" href="#uberblick-zu-neuen-features-und-transformation" title="Permalink to this headline">¶</a></h2>
+<p>Nachfolgend werden die Verteilungen auf für die neuen Features betrachtet.</p>
+<ul class="simple">
+<li><p><em>persons_per_household</em> hat einige ungewöhnliche Ausreißer mit im Mittel über Tausend Personen pro Haushalt in einem Distrikt.</p></li>
+<li><p>Das Feature <em>person_per_household</em> wird mit dem 4-fachen der Interquartilsabweichung von Ausreißern nach Oben bereinigt.</p></li>
+<li><p>Die Features <em>rooms_per_household</em> und <em>person_per_household</em> werden mit Log-Transformation bearbeitet, um weiteren starke Ausreißern weniger Gewicht zu geben.</p>
+<ul>
+<li><p>Das Datenset wird um zwei Spalten erweitert: <em>sm_PpH</em> und <em>sm_RpH</em></p></li>
+<li><p>Die neuen Spalten enthalten die Log-Transformation für Modellierung mit Statsmodels</p></li>
+<li><p>Die ursprünglichen Spalten bleiben erhalten für die Verarbeitung in der SKLearn Pipeline und werden bei Bedarf für die Splines verwendet.</p></li>
+</ul>
+</li>
+</ul>
+<p>Das Feature <em>share_bedrooms</em> ist wegen seiner Beschaffenheit (Anteil) bereits zwischen 0 und 1 normiert und muss nicht weiter angepasst werden.
+</br>Die Verteilungen nach Preiskategorie sind nicht sehr unterschiedlich.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hue_</span> <span class="o">=</span> <span class="s2">&quot;priceCat&quot;</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_45_0.png" src="_images/Data_45_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hue_</span> <span class="o">=</span> <span class="s2">&quot;priceCat&quot;</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_46_0.png" src="_images/Data_46_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>19448.000000</td>
+      <td>19448.000000</td>
+      <td>19448.000000</td>
+      <td>19448.000000</td>
+      <td>19448.000000</td>
+      <td>19448.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>28.364716</td>
+      <td>3.676430</td>
+      <td>192.017667</td>
+      <td>3.097483</td>
+      <td>0.214933</td>
+      <td>5.363847</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.510260</td>
+      <td>1.569596</td>
+      <td>97.095551</td>
+      <td>10.693511</td>
+      <td>0.056922</td>
+      <td>2.301255</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.499900</td>
+      <td>14.999000</td>
+      <td>0.692308</td>
+      <td>0.100000</td>
+      <td>0.846154</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>18.000000</td>
+      <td>2.526275</td>
+      <td>116.400000</td>
+      <td>2.445931</td>
+      <td>0.177648</td>
+      <td>4.418320</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>28.000000</td>
+      <td>3.450750</td>
+      <td>173.700000</td>
+      <td>2.837171</td>
+      <td>0.204545</td>
+      <td>5.186745</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.000000</td>
+      <td>4.583300</td>
+      <td>247.800000</td>
+      <td>3.304772</td>
+      <td>0.240879</td>
+      <td>5.971083</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>52.000000</td>
+      <td>15.000100</td>
+      <td>499.100000</td>
+      <td>1243.333333</td>
+      <td>1.000000</td>
+      <td>132.533333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="_images/Data_47_1.png" src="_images/Data_47_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iqr_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">person_per_household</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="mi">75</span><span class="p">])</span>
+<span class="n">cut_</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">iqr_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">iqr_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">iqr_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IQR:&quot;</span><span class="p">,</span><span class="n">cut_</span><span class="p">)</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">person_per_household</span> <span class="o">&lt;</span> <span class="n">cut_</span><span class="p">]</span> <span class="c1">#75th Percentile oder auch 3. Quantil wird als Obergrenze für Personen pro Haushalt verwendet.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IQR: 6.740136516316871
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>19379.000000</td>
+      <td>19379.000000</td>
+      <td>19379.000000</td>
+      <td>19379.000000</td>
+      <td>19379.000000</td>
+      <td>19379.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>28.366686</td>
+      <td>3.677721</td>
+      <td>192.142690</td>
+      <td>2.929914</td>
+      <td>0.214815</td>
+      <td>5.364710</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.500313</td>
+      <td>1.568808</td>
+      <td>97.124094</td>
+      <td>0.732906</td>
+      <td>0.056579</td>
+      <td>2.298734</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.499900</td>
+      <td>14.999000</td>
+      <td>0.692308</td>
+      <td>0.100000</td>
+      <td>0.846154</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>18.000000</td>
+      <td>2.527350</td>
+      <td>116.400000</td>
+      <td>2.444509</td>
+      <td>0.177624</td>
+      <td>4.419756</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>28.000000</td>
+      <td>3.451900</td>
+      <td>173.800000</td>
+      <td>2.834244</td>
+      <td>0.204518</td>
+      <td>5.187870</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.000000</td>
+      <td>4.583300</td>
+      <td>247.900000</td>
+      <td>3.298800</td>
+      <td>0.240728</td>
+      <td>5.971846</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>52.000000</td>
+      <td>15.000100</td>
+      <td>499.100000</td>
+      <td>6.739583</td>
+      <td>1.000000</td>
+      <td>132.533333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;person_per_household&#39;, ylabel=&#39;priceCat&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_49_1.png" src="_images/Data_49_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rooms_per_household&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;person_per_household&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">L</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>19374.000000</td>
+      <td>19374.000000</td>
+      <td>19374.000000</td>
+      <td>19374.000000</td>
+      <td>19374.000000</td>
+      <td>19374.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>28.367813</td>
+      <td>3.678088</td>
+      <td>192.146056</td>
+      <td>2.930312</td>
+      <td>0.214741</td>
+      <td>5.364173</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.499801</td>
+      <td>1.568657</td>
+      <td>97.124915</td>
+      <td>0.732478</td>
+      <td>0.056224</td>
+      <td>2.292389</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.499900</td>
+      <td>14.999000</td>
+      <td>1.060606</td>
+      <td>0.100000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>18.000000</td>
+      <td>2.527575</td>
+      <td>116.400000</td>
+      <td>2.444795</td>
+      <td>0.177622</td>
+      <td>4.420299</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>28.000000</td>
+      <td>3.452900</td>
+      <td>173.850000</td>
+      <td>2.834538</td>
+      <td>0.204516</td>
+      <td>5.188198</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.000000</td>
+      <td>4.583300</td>
+      <td>247.900000</td>
+      <td>3.299094</td>
+      <td>0.240715</td>
+      <td>5.971931</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>52.000000</td>
+      <td>15.000100</td>
+      <td>499.100000</td>
+      <td>6.739583</td>
+      <td>1.000000</td>
+      <td>132.533333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_</span> <span class="o">=</span> <span class="s2">&quot;person_per_household&quot;</span>
+<span class="n">b_</span> <span class="o">=</span> <span class="s2">&quot;rooms_per_household&quot;</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;sm_PpH&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="n">a_</span><span class="p">]])</span> <span class="c1">#Log-Transformation in extra Spalte für Statsmodels OLS</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;sm_RpH&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="n">b_</span><span class="p">]])</span> <span class="c1">#Log-Transformation in extra Spalte für Statsmodels OLS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hue_</span> <span class="o">=</span> <span class="s2">&quot;priceCat&quot;</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;share_bedrooms&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_52_1.png" src="_images/Data_52_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plots zur Kontrolle der erfolgreichen Log-Transformation</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="n">hue_</span> <span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sm_RpH&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fad4c20bfa0&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_53_1.png" src="_images/Data_53_1.png" />
+<img alt="_images/Data_53_2.png" src="_images/Data_53_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="lage-kategorien">
+<h2>Lage-Kategorien<a class="headerlink" href="#lage-kategorien" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zusammenfassung-preiskategorie">
+<h3>Zusammenfassung Preiskategorie<a class="headerlink" href="#zusammenfassung-preiskategorie" title="Permalink to this headline">¶</a></h3>
+<p>Bisher wurden die Verteilungen mit Unterschieden bzgl. Preiskategorie betrachtet.
+Es bleibt festzuhalten, dass nur das Median-Einkommen und die Lage einen Unterschied ausmachen.</p>
+</div>
+<div class="section" id="die-lage-kategorie-ocean-proximity">
+<h3>Die Lage-Kategorie: <em>ocean_proximity</em><a class="headerlink" href="#die-lage-kategorie-ocean-proximity" title="Permalink to this headline">¶</a></h3>
+<p>Der Datensatz unterscheidet nach insgesamt fünf Lagen. Das folgende Säulendiagramm zeigt die Anzahl der Datensätze zur jeweiligen Lage, gefolgt von einem Boxplot.</p>
+<ol class="simple">
+<li><p>Weniger als 1H zum Ozean</p></li>
+<li><p>Inland</p></li>
+<li><p>Insel</p></li>
+<li><p>In der Nähe zur Bucht</p></li>
+<li><p>In der Nähe zum Ozean</p></li>
+</ol>
+<p>Trotz der sehr geringen Anzahl von 5 Stück hat die Insel-Lage noch einen weit spannenden Boxplot, jedoch mit Median deutlich über den der anderen Kategorien.</br>
+Es ist möglich, dass diese Datensätze gelöscht oder in eine passende Kategorie überführt werden.</p>
+<p>Die Datensätze <em>Nähe zur Bucht</em> und <em>Nähe zum Ozean</em> sind vergleichbar groß und haben eine nahezu identische Verteilung. Eine Zusammenlegung ist sinnvoll. </br>
+Damit entsteht eine gemeinsame Lage für Küstennähe: <em>Coast</em>. Fraglich ist nur ob eine Zusammenlegung mit <em>&lt;1H OECAN</em> sinnvoll wäre. Leider stehen keine Informationen zur Datenerhebung zur Verfügung und es kann nicht geprüft werden wie stark der Unterschied zwischen Küstennähe und <em>&lt;1H OCEAN</em> tatsächlich ist.</p>
+<p>Folgende Argumentation steht hinter der Entscheidung aus die Lage-Kategorie auf zwei Ausprägungen zu verdichten.</br>
+Die neue Ausprägung lautet <em>Coast</em> oder <em>Inland</em> und wird in der Spalte <em>Proximity</em> angegeben. Die Werte für <em>Island</em> gehen in <em>Coast</em> ein.</p>
+<p><strong>Für die Verknüpfung von <em>&lt;1H Ocean</em> mit der neuen <em>Coast</em>-Lage sprechen:</strong></p>
+<ul class="simple">
+<li><p>Bei der Angabe von einer Stunde könnte es sich um einen Fußweg oder eine Autofahrt handeln.</p></li>
+<li><p>Alle Mediane liegen laut Boxplot über dem von <em>Inland</em>.</p></li>
+<li><p>Die Verteilung für die Coast-Lagen liegen vollständig unterhalb der von <em>&lt;1H OCEAN</em>. Siehe dazu Dichteplot unter dem Boxplot.</p></li>
+<li><p>Laut Boxplot wird die Lage <em>Inland</em> mit geringeren Immobilienwerten in Verbindung gesetzt.</p></li>
+<li><p>Bei der Analyse von <em>median_house_value</em> wurde eine deutliche Unterrepräsentation in der Anzahl an <em>below</em>-Werten in der Preiskategorie festgestellt.</p></li>
+<li><p>Das Verhältnis von <em>below</em> zu <em>above</em> entspricht ungefähr dem Verhältnis von <em>Inland</em> zu <em>Coast inkl. &lt;1H Ocean</em></p>
+<ul>
+<li><p><em>below/above</em> = 7486 / 12947 = 57.8 %</p></li>
+<li><p><em>Inland/Coast inkl. &lt;1H Ocean</em> = 6436 / (8473+5+2065+2395) = 49.8 %</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Dagegen sprechen:</strong></p>
+<ul class="simple">
+<li><p>In den Lagen könnten Einkommen etc. unterschiedlich verteilt sein und entsprechende Informationen verloren gehen. <strong>Aber diese Zusammenhänge wollen wir nicht modellieren.</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">op</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> AMT: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span><span class="o">+</span><span class="mf">0.4</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="o">+</span><span class="mi">950</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_55_0.png" src="_images/Data_55_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;ocean_proximity&#39;, ylabel=&#39;median_house_value&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_55_2.png" src="_images/Data_55_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_house_value&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_56_1.png" src="_images/Data_56_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ocean_proximity</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;proximity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">x</span><span class="o">==</span><span class="s2">&quot;NEAR BAY&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="s2">&quot;NEAR OCEAN&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="s2">&quot;&lt;1H OCEAN&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="s2">&quot;ISLAND&quot;</span><span class="p">),</span><span class="s2">&quot;COAST&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;proximity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;proximity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_house_value&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Data_57_1.png" src="_images/Data_57_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-export">
+<h1>Data Export<a class="headerlink" href="#data-export" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Der analysierte Datensatz enthält weiterhin zukünftige Test- und Trainingsdaten, wie in Introduction besprochen.</p></li>
+<li><p>Die durchgeführten Transformationen haben keine Informationen von Mittelwerten oder sonstigen Lagemaßen verwendet.</p>
+<ul>
+<li><p>D.h. diese werden nicht in der nachfolgenden Pipeline oder bei getrennter Modellierung beachtet werden.</p></li>
+</ul>
+</li>
+<li><p>1266 Datensätze wurden entfernt.</p></li>
+</ul>
+<p>Nachfolgend eine Übersicht zum finalen Datensatz und eine Export-Codezeile.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 19374 entries, 0 to 20639
+Data columns (total 10 columns):
+ #   Column                Non-Null Count  Dtype   
+---  ------                --------------  -----   
+ 0   housing_median_age    19374 non-null  float64 
+ 1   median_income         19374 non-null  float64 
+ 2   median_house_value    19374 non-null  float64 
+ 3   priceCat              19374 non-null  category
+ 4   person_per_household  19374 non-null  float64 
+ 5   share_bedrooms        19374 non-null  float64 
+ 6   rooms_per_household   19374 non-null  float64 
+ 7   sm_PpH                19374 non-null  float64 
+ 8   sm_RpH                19374 non-null  float64 
+ 9   proximity             19374 non-null  category
+dtypes: category(2), float64(8)
+memory usage: 1.9 MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ready_data.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="regression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Regression</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

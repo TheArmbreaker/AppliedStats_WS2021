@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classification &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary and Conclusion" href="summary.html" />
+    <link rel="prev" title="Natural Spline" href="Natural_spline.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lasso_regression.html">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Natural_spline.html">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclassification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zur-nachstehenden-confusionmatrix">
+     Zur nachstehenden ConfusionMatrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Classification</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zur-nachstehenden-confusionmatrix">
+     Zur nachstehenden ConfusionMatrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels">
+   Modellierung in Statsmodels
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="classification">
+<h1>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h1>
+<p>The goal is to build a classification model to predict if median housing prices in some districts are below or above a certain level (150000).</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-import">
+<h1>Data Import<a class="headerlink" href="#data-import" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seaborn settings</span>
+<span class="n">custom_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;axes.spines.right&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;axes.spines.top&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">custom_params</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ready_data.csv&quot;</span><span class="p">)</span>
+
+<span class="n">datatypes_toChange</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;priceCat&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;proximity&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">datatypes_toChange</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vorgehensweise">
+<h1>Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Permalink to this headline">¶</a></h1>
+<p>Der nachstehende Pairplot zeigt nocheinmal eine grobe Zusammenfassung aus den Aktivitäten zur Datenvorbereitung in Data.ipynb. Die Darstellung enthält einige Plots, welche ignoriert werden können. Relevant sind die Dichte-Funktionen und deren Überlagerung.</p>
+<p>In data.ipynb hatte sich bereits gezeigt, dass die Personen pro Haushalt, Anzahl der Räume, Anteil der Schlafzimmer und das Alter des Gebäudes für die beiden Kategorien <em>above</em> oder <em>below</em> gleichverteilt sind. D.h. für die Klassifikation wird kein Einfluss erwartet.</p>
+<p>Die Modellierung wird entsprechend auf das Median-Einkommen und die Lage (Küste oder Inland) beschränkt.</p>
+<p>In den nachfolgenden Stichpunkten wird die Klassifikation jeweils einmal mit <strong>SK Learn</strong> und <strong>Statsmodels</strong> durchgeführt.</br>
+Dabei sind unterschiedliche Vorgehensweisen bzgl. Einlesen und Umgang mit Dummyvariablen zu beachten.</p>
+<ul class="simple">
+<li><p>SK Learn verwendet OneHotEncoding in der Pipeline</p></li>
+<li><p>Für Statsmodels werden Dummies über eine Pandas-Methode abgerufen</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_smallplot</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">,</span> <span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat&quot;</span><span class="p">]]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_smallplot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fe09a9cf9a0&gt;
+</pre></div>
+</div>
+<img alt="_images/classification_6_1.png" src="_images/classification_6_1.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-sk-learn-pipeline">
+<h1>Modellierung in SK Learn Pipeline<a class="headerlink" href="#modellierung-in-sk-learn-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Im Folgenden werden über die Pipeline zwei Confusion-Matrix erzeugt. Einmal mit Lage und Einkommen und einmal nur mit Lage.</p>
+<p>Die Berücksichtigung der Median-Einkommen in den Distrikten verbessert die Accuracy deutlich. Bei einem Schwellenwert von 0,5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span> <span class="n">classification_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;priceCat&quot;</span><span class="p">]],</span> <span class="n">drop_first</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">priceCat_below</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 19374 entries, 0 to 19373
+Data columns (total 2 columns):
+ #   Column         Non-Null Count  Dtype   
+---  ------         --------------  -----   
+ 0   median_income  19374 non-null  float64 
+ 1   proximity      19374 non-null  category
+dtypes: category(1), float64(1)
+memory usage: 170.5 KB
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column_trans</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">((</span><span class="n">OneHotEncoder</span><span class="p">(),[</span><span class="s2">&quot;proximity&quot;</span><span class="p">]),</span> <span class="n">remainder</span><span class="o">=</span><span class="s2">&quot;passthrough&quot;</span><span class="p">)</span>
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">column_trans</span><span class="p">,</span> <span class="n">logreg</span><span class="p">)</span>
+<span class="c1">#cross_val_score(pipe,X_train,y_train,cv=5, scoring=&quot;accuracy&quot;).mean()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">pred_proba</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="zur-nachstehenden-confusionmatrix">
+<h2>Zur nachstehenden ConfusionMatrix<a class="headerlink" href="#zur-nachstehenden-confusionmatrix" title="Permalink to this headline">¶</a></h2>
+<p>Precision und Recall sind etwa gleich auf, weshalb ohne weitere Informationen zu Kosten der Fehlklassifikation keine Anpassung mit Threshold erfolgt.</br>
+Der F1 Score kann interpretiert werden, jedoch scheint die Verteilung True Negative zu True Positiv nicht zu verzerrend.</br></p>
+<p>Das Modell predicted mit 1 die Klasse <em>below</em> (Positiv)</br>D.h. 1643 Distrikte wurden korrekt als <em>below</em> klassifiziert, also unter einem Median-Immobilienwert von 150 T$ (inkl. Obergrenze).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;y_test&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;y_pred&#39;</span><span class="p">:</span> <span class="n">pred_proba</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">})</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">])</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span>
+                              <span class="n">display_labels</span><span class="o">=</span><span class="n">pipe</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix für Lage und Median-Einkommen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/classification_15_0.png" src="_images/classification_15_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.85      0.89      0.87      3601
+           1       0.81      0.74      0.77      2212
+
+    accuracy                           0.83      5813
+   macro avg       0.83      0.82      0.82      5813
+weighted avg       0.83      0.83      0.83      5813
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">pred_proba</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;y_test&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;y_pred&#39;</span><span class="p">:</span> <span class="n">pred_proba</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">})</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">])</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span>
+                              <span class="n">display_labels</span><span class="o">=</span><span class="n">pipe</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+
+<span class="n">disp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix für Lage&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">df_</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/classification_16_0.png" src="_images/classification_16_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.80      0.86      0.83      3601
+           1       0.74      0.64      0.69      2212
+
+    accuracy                           0.78      5813
+   macro avg       0.77      0.75      0.76      5813
+weighted avg       0.78      0.78      0.78      5813
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-statsmodels">
+<h1>Modellierung in Statsmodels<a class="headerlink" href="#modellierung-in-statsmodels" title="Permalink to this headline">¶</a></h1>
+<p>Nachfolgend die Modellierung in Statsmodels. Wegen dem Fehlen der komfortablen Pipeline nur für das Predictor-Paar Lage und Median-Einkommen.</p>
+<p>Es ergibt sich eine Accuracy von 78%. Die deutliche Verschlechterung im Vergleich zu SK Learn kann an dem unterschiedlichen Split in Trainings- und Testdaten liegen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat&quot;</span><span class="p">]],</span> <span class="n">drop_first</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">dummies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proximity_INLAND</th>
+      <th>priceCat_below</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19369</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19370</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19371</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19372</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19373</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>19374 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">[[</span><span class="s2">&quot;proximity_INLAND&quot;</span><span class="p">,</span> <span class="s2">&quot;priceCat_below&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">numeric_feature_names</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;proximity_INLAND&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Entweder mit oder ohne median_income</span>
+<span class="c1">#X = X.drop(columns=[&quot;priceCat&quot;,&quot;proximity&quot;,&quot;housing_median_age&quot;, &quot;median_house_value&quot;, &quot;share_bedrooms&quot;, &quot;person_per_household&quot;, &quot;rooms_per_household&quot;, &quot;sm_PpH&quot;, &quot;sm_RpH&quot;], axis=1)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span><span class="s2">&quot;priceCat&quot;</span><span class="p">,</span><span class="s2">&quot;proximity&quot;</span><span class="p">,</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="s2">&quot;share_bedrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;person_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 19374 entries, 0 to 19373
+Data columns (total 2 columns):
+ #   Column            Non-Null Count  Dtype
+---  ------            --------------  -----
+ 0   proximity_INLAND  19374 non-null  uint8
+ 1   priceCat_below    19374 non-null  uint8
+dtypes: uint8(2)
+memory usage: 38.0 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">]</span>
+<span class="n">X_train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;priceCat_below&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_dataset</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.532092
+         Iterations 5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Probability&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;priceCat_below&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">)</span>  
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Threshold 0.5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Probability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">)</span>  
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Probability</th>
+      <th>priceCat_below</th>
+      <th>Threshold 0.5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>0.5</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.5</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0.5</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>0.5</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>0.5</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>0.5</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>0.5</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_metrics</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">predicted</span><span class="p">):</span>
+    <span class="c1"># Header</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Metrics for: </span><span class="si">{</span><span class="n">predicted</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Confusion Matrix</span>
+    <span class="n">y_actu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;priceCat_below&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">predicted</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+    <span class="n">df_conf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">y_actu</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df_conf</span><span class="p">)</span>
+    
+    <span class="c1"># Confusion Matrix to variables:</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">df_conf</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">tp</span> <span class="o">=</span> <span class="n">df_conf</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">][</span><span class="s1">&#39;Yes&#39;</span><span class="p">]</span>
+    <span class="n">tn</span> <span class="o">=</span> <span class="n">df_conf</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">][</span><span class="s1">&#39;No&#39;</span><span class="p">]</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">df_conf</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">][</span><span class="s1">&#39;No&#39;</span><span class="p">]</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="n">df_conf</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">][</span><span class="s1">&#39;Yes&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># Metrics</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">tn</span><span class="p">)</span> <span class="o">/</span> <span class="n">pop</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fp</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span>
+    <span class="n">f1_score</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy:  </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Recall:    </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;F1 Score:  </span><span class="si">{</span><span class="n">f1_score</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+<span class="n">print_metrics</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;Threshold 0.5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
+Metrics for: Threshold 0.5
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Predicted</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>Actual</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>No</th>
+      <td>2102</td>
+      <td>301</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>522</td>
+      <td>950</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.7876
+Precision: 0.7594
+Recall:    0.6454
+F1 Score:  0.6978 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Natural_spline.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Natural Spline</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="summary.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Summary and Conclusion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

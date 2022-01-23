@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natural Spline &#8212; Applied Statistics WS2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classification" href="classification.html" />
+    <link rel="prev" title="Lasso Regression" href="lasso_regression.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Statistics WS2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Applied Statistics Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Plan and Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data / Stats / EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lasso_regression.html">
+   Lasso Regression
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion for Validation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary and Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Natural_spline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNatural_spline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Natural_spline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels-patsy">
+   Modellierung in Statsmodels &amp; Patsy
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Natural Spline</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Natural Spline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-import">
+   Data Import
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorgehensweise">
+   Vorgehensweise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-sk-learn-pipeline">
+   Modellierung in SK Learn Pipeline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung-in-statsmodels-patsy">
+   Modellierung in Statsmodels &amp; Patsy
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="natural-spline">
+<h1>Natural Spline<a class="headerlink" href="#natural-spline" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-import">
+<h1>Data Import<a class="headerlink" href="#data-import" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ready_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>housing_median_age</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>priceCat</th>
+      <th>person_per_household</th>
+      <th>share_bedrooms</th>
+      <th>rooms_per_household</th>
+      <th>sm_PpH</th>
+      <th>sm_RpH</th>
+      <th>proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41.0</td>
+      <td>8.3252</td>
+      <td>452.6</td>
+      <td>above</td>
+      <td>2.555556</td>
+      <td>0.146591</td>
+      <td>6.984127</td>
+      <td>0.938270</td>
+      <td>1.943640</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21.0</td>
+      <td>8.3014</td>
+      <td>358.5</td>
+      <td>above</td>
+      <td>2.109842</td>
+      <td>0.155797</td>
+      <td>6.238137</td>
+      <td>0.746613</td>
+      <td>1.830682</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52.0</td>
+      <td>7.2574</td>
+      <td>352.1</td>
+      <td>above</td>
+      <td>2.802260</td>
+      <td>0.129516</td>
+      <td>8.288136</td>
+      <td>1.030426</td>
+      <td>2.114825</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>52.0</td>
+      <td>5.6431</td>
+      <td>341.3</td>
+      <td>above</td>
+      <td>2.547945</td>
+      <td>0.184458</td>
+      <td>5.817352</td>
+      <td>0.935287</td>
+      <td>1.760845</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>52.0</td>
+      <td>3.8462</td>
+      <td>342.2</td>
+      <td>above</td>
+      <td>2.181467</td>
+      <td>0.172096</td>
+      <td>6.281853</td>
+      <td>0.779998</td>
+      <td>1.837665</td>
+      <td>COAST</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19369</th>
+      <td>25.0</td>
+      <td>1.5603</td>
+      <td>78.1</td>
+      <td>below</td>
+      <td>2.560606</td>
+      <td>0.224625</td>
+      <td>5.045455</td>
+      <td>0.940244</td>
+      <td>1.618488</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19370</th>
+      <td>18.0</td>
+      <td>2.5568</td>
+      <td>77.1</td>
+      <td>below</td>
+      <td>3.122807</td>
+      <td>0.215208</td>
+      <td>6.114035</td>
+      <td>1.138732</td>
+      <td>1.810587</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19371</th>
+      <td>17.0</td>
+      <td>1.7000</td>
+      <td>92.3</td>
+      <td>below</td>
+      <td>2.325635</td>
+      <td>0.215173</td>
+      <td>5.205543</td>
+      <td>0.843993</td>
+      <td>1.649724</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19372</th>
+      <td>18.0</td>
+      <td>1.8672</td>
+      <td>84.7</td>
+      <td>below</td>
+      <td>2.123209</td>
+      <td>0.219892</td>
+      <td>5.329513</td>
+      <td>0.752929</td>
+      <td>1.673260</td>
+      <td>INLAND</td>
+    </tr>
+    <tr>
+      <th>19373</th>
+      <td>16.0</td>
+      <td>2.3886</td>
+      <td>89.4</td>
+      <td>below</td>
+      <td>2.616981</td>
+      <td>0.221185</td>
+      <td>5.254717</td>
+      <td>0.962021</td>
+      <td>1.659126</td>
+      <td>INLAND</td>
+    </tr>
+  </tbody>
+</table>
+<p>19374 rows × 10 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;priceCat&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vorgehensweise">
+<h1>Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Permalink to this headline">¶</a></h1>
+<p>In den nachfolgenden Punkten wird die Regression eines Natural Splines jeweils einmal mit <strong>SK Learn</strong> und <strong>Statsmodels</strong> durchgeführt.</br></p>
+<p>Vorarbeit wurde bereits in Data.ipynb erbracht.</p>
+<p>SK Learn Pipeline verwendet eine Lasso-Regression mit dem ermittelten Hyperparameter aus <em>lasso_regression.ipynb</em>. Eventuell handelt es sich dadurch nicht um einen <strong>Natural</strong> Spline.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-sk-learn-pipeline">
+<h1>Modellierung in SK Learn Pipeline<a class="headerlink" href="#modellierung-in-sk-learn-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Für den Spline wird der Hyperparameter aus der Aufgabe zur Lasso-Regression verwendet. Es handelt sich nicht um einen Natural Spline</br>
+Lambda: 0.063103048006874</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># create function to obtain model mse</span>
+<span class="k">def</span> <span class="nf">model_results</span><span class="p">(</span><span class="n">model_name</span><span class="p">):</span>
+
+    <span class="c1"># Training data</span>
+    <span class="n">pred_train</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">mse_train</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">pred_train</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">rmse_train</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">pred_train</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Test data</span>
+    <span class="n">pred_test</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">mse_test</span> <span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">rmse_test</span> <span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Print model results</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> 
+        <span class="s2">&quot;mse_train&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">mse_train</span><span class="p">],</span>
+        <span class="s2">&quot;rmse_train&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse_train</span><span class="p">],</span>
+        <span class="s2">&quot;mse_test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">mse_test</span><span class="p">],</span> 
+        <span class="s2">&quot;rmse_test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse_test</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;housing_median_age&quot;</span><span class="p">,</span> <span class="s2">&quot;median_income&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_RpH&quot;</span><span class="p">,</span> <span class="s2">&quot;sm_PpH&quot;</span><span class="p">,</span> <span class="s2">&quot;proximity&quot;</span><span class="p">,]]</span> <span class="c1">#sm_ verwendet, um nicht nochmal den FunctionTransformer zuschreiben.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">SplineTransformer</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span><span class="p">,</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span><span class="p">,</span> <span class="n">ColumnTransformer</span>
+
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.063103048006874</span><span class="p">)</span> <span class="c1"># Bestes Alpha aus Aufgabe zur Lasso Regression</span>
+<span class="n">column_trans</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">remainder</span><span class="o">=</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> <span class="n">transformers</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;onehotencoder&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(),[</span><span class="s1">&#39;proximity&#39;</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;standscal&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),[</span><span class="s1">&#39;median_income&#39;</span><span class="p">])])</span>
+
+<span class="n">reg</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">column_trans</span><span class="p">,</span> <span class="n">SplineTransformer</span><span class="p">(</span><span class="n">n_knots</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">lasso</span><span class="p">)</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_results</span><span class="p">(</span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;spline&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>mse_train</th>
+      <th>rmse_train</th>
+      <th>mse_test</th>
+      <th>rmse_test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>spline</td>
+      <td>3361.4907</td>
+      <td>57.9784</td>
+      <td>3506.5874</td>
+      <td>59.2164</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modellierung-in-statsmodels-patsy">
+<h1>Modellierung in Statsmodels &amp; Patsy<a class="headerlink" href="#modellierung-in-statsmodels-patsy" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrix</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;median_income&quot;</span><span class="p">]]</span> <span class="c1">#sm_ verwendet, um nicht nochmal den FunctionTransformer zuschreiben.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transformed_x3</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;cr(train, df=3)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="n">X_train</span><span class="p">},</span><span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">transformed_x3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training data</span>
+<span class="n">pred_train</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;cr(train, df=3)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="n">X_train</span><span class="p">},</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">))</span>
+<span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">pred_train</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rmse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">pred_train</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Test data</span>
+<span class="n">pred_test</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;cr(test, df=3)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="n">X_test</span><span class="p">},</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">))</span>
+<span class="n">mse_test</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rmse_test</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Save model results</span>
+<span class="n">model_results_ns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Natural spline (ns)&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;mse_train&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">mse_train</span><span class="p">],</span>  
+    <span class="s2">&quot;rmse_train&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse_train</span><span class="p">],</span>
+    <span class="s2">&quot;mse_test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">mse_test</span><span class="p">],</span> 
+    <span class="s2">&quot;rmse_test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse_test</span><span class="p">],</span>
+    <span class="p">})</span>
+
+<span class="n">model_results_ns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>mse_train</th>
+      <th>rmse_train</th>
+      <th>mse_test</th>
+      <th>rmse_test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Natural spline (ns)</td>
+      <td>5400.39427</td>
+      <td>73.487375</td>
+      <td>5594.923795</td>
+      <td>74.799223</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="lasso_regression.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lasso Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="classification.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Classification</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Markus Armbrecht<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
